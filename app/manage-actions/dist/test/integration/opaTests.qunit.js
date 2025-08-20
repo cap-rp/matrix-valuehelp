@@ -1,0 +1,2 @@
+sap.ui.require(["sap/fe/test/JourneyRunner","qe/manageactions/test/integration/FirstJourney","qe/manageactions/test/integration/pages/ActionItemsList","qe/manageactions/test/integration/pages/ActionItemsObjectPage","qe/manageactions/test/integration/pages/ActionItems_textsObjectPage"],function(e,t,n,a,s){"use strict";var e=new e({launchUrl:sap.ui.require.toUrl("qe/manageactions")+"/index.html"});e.run({pages:{onTheActionItemsList:n,onTheActionItemsObjectPage:a,onTheActionItems_textsObjectPage:s}},t.run)});
+//# sourceMappingURL=opaTests.qunit.js.map

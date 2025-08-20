@@ -1,0 +1,40 @@
+{
+  "name": "matrix-valuehelp",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^9",
+    "express": "^4",
+    "@cap-rp/matrixvh": "*"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "cds": {
+    "env": {
+      "fiori": {
+        "bypass_draft": true
+      }
+    }
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2",
+    "@cap-js/cds-types": "^0.11.0",
+    "@sap/ux-specification": "UI5-1.139"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-manage-actions": "cds watch --open manage-actions/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "sapux": [
+    "app/admin-books",
+    "app/browse",
+    "app/manage-actions"
+  ],
+  "workspaces": [
+    "matrixvh"
+  ]
+}

@@ -1,0 +1,9 @@
+ID,title,descr
+1A,red,"Very high criticality"
+1B,orange,"High criticality"
+1C,green,"Medium criticality"
+1D,white,"Low criticality"
+2A,green,"Medium"
+2B,white,"Low"
+3C,green,"Medium"
+5D,red,"Very high"

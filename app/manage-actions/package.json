@@ -1,0 +1,35 @@
+{
+  "name": "manage-actions",
+  "version": "0.0.1",
+  "description": "An SAP Fiori application.",
+  "keywords": [
+    "ui5",
+    "openui5",
+    "sapui5"
+  ],
+  "main": "webapp/index.html",
+  "dependencies": {
+    "@cap-rp/matrixvh": "*"
+  },
+  "devDependencies": {
+    "@sap/ux-ui5-tooling": "1",
+    "ui5-middleware-servestatic": "^3.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.40.0",
+    "@typescript-eslint/parser": "^8.40.0",
+    "@ui5/cli": "^4.0.23",
+    "@ui5/ts-interface-generator": "^0.10.3",
+    "eslint": "^9",
+    "typescript": "^5.0.3",
+    "ui5-middleware-livereload": "^3",
+    "ui5-middleware-simpleproxy": "^3",
+    "ui5-tooling-transpile": "^3"
+  },
+  "scripts": {
+    "start": "ui5 serve --port 8080 -o index.html",
+    "build": "ui5 build --all",
+    "deploy-config": "npx -p @sap/ux-ui5-tooling fiori add deploy-config cf"
+  },
+  "workspaces": [
+    "../../matrixvh"
+  ]
+}
