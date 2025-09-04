@@ -8,7 +8,9 @@
   "dependencies": {
     "@sap/cds": "^9",
     "express": "^4",
-    "@cap-rp/matrixvh": "*"
+    "@cap-rp/matrixvh": "*",
+    "@cap-js/hana": "^2",
+    "@sap/xssec": "^4"
   },
   "engines": {
     "node": ">=20"
@@ -18,11 +20,20 @@
       "fiori": {
         "bypass_draft": true
       }
+    },
+    "requires": {
+      "[production]": {
+        "auth": "xsuaa"
+      },
+      "html5-runtime": true,
+      "destinations": true,
+      "workzone": true
     }
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^2",
     "@cap-js/cds-types": "^0.11.0",
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": ">=8",
     "@sap/ux-specification": "UI5-1.139"
   },
   "scripts": {

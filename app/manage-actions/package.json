@@ -14,12 +14,18 @@
     "@typescript-eslint/eslint-plugin": "^8.40.0",
     "@typescript-eslint/parser": "^8.40.0",
     "@ui5/cli": "^4.0.23",
-    "eslint": "^9"
+    "eslint": "^9",
+    "ui5-task-zipper": "^3"
   },
   "scripts": {
     "start": "ui5 serve --port 8080 -o index.html",
     "build": "ui5 build --all",
-    "deploy-config": "npx -p @sap/ux-ui5-tooling fiori add deploy-config cf"
+    "deploy-config": "npx -p @sap/ux-ui5-tooling fiori add deploy-config cf",
+    "build-local": "ui5 build preload --clean-dest"
+  },
+  "ui5": {
+    "dependencies": [
+      "ui5-task-zipper"
+    ]
   }
-  
 }
