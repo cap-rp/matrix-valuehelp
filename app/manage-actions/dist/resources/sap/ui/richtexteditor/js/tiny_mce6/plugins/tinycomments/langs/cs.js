@@ -1,0 +1,51 @@
+/*!
+ * TinyMCE Language Pack
+ *
+ * Copyright (c) 2023 Ephox Corporation DBA Tiny Technologies, Inc.
+ * Licensed under the Tiny commercial license. See https://www.tiny.cloud/legal/
+ */
+tinymce.addI18n("cs", {
+  "TinyComments": "Tiny koment\xe1\u0159e",
+  "Comments": "Koment\xe1\u0159e",
+  "Add comment": "P\u0159idat koment\xe1\u0159",
+  "Show comments": "Zobrazit koment\xe1\u0159e",
+  "Delete all conversations": "Odstranit v\u0161echny konverzace",
+  "Delete conversation": "Odstranit konverzaci",
+  "Delete": "Odstranit",
+  "Clear": "Vymazat",
+  "Edit": "Upravit",
+  "Comment": "Koment\xe1\u0159",
+  "Save": "Ulo\u017eit",
+  "Add comment...": "P\u0159idat koment\xe1\u0159...",
+  "Delete all conversations in the content? This cannot be undone.": "Odstranit z\xa0obsahu v\u0161echny konverzace? Tuto akci nelze vr\xe1tit zp\u011bt.",
+  "Are you sure you want to delete this comment?": "Opravdu chcete tento koment\xe1\u0159 odstranit?",
+  "Delete this conversation?": "Odstranit tuto konverzaci?",
+  "You are not allowed to edit this comment": "Nem\xe1te opr\xe1vn\u011bn\xed upravovat tento koment\xe1\u0159",
+  "You are not allowed to delete all the conversations": "Nem\xe1te opr\xe1vn\u011bn\xed odstranit v\u0161echny konverzace",
+  "You are not allowed to delete this conversation": "Nem\xe1te opr\xe1vn\u011bn\xed odstranit tuto konverzaci",
+  "You are not allowed to delete this comment": "Nem\xe1te opr\xe1vn\u011bn\xed odstranit tento koment\xe1\u0159",
+  "1 comment will be deleted. You can't undo this action.": "Bude odstran\u011bn jeden koment\xe1\u0159. Tuto akci nelze vr\xe1tit zp\u011bt.",
+  "{0} comments will be deleted. You can't undo this action.": "Bude odstran\u011bno {0} koment\xe1\u0159\u016f. Tuto akci nelze vr\xe1tit zp\u011bt.",
+  " (edited)": "(upraveno)",
+  "a moment ago": "p\u0159ed malou chv\xedl\xed",
+  "1 minute ago": "p\u0159ed 1 minutou",
+  "{0} minutes ago": "p\u0159ed {0} minutami",
+  "1 hour ago": "p\u0159ed 1 hodinou",
+  "{0} hours ago": "p\u0159ed {0} hodinami",
+  "1 day ago": "p\u0159ed 1 dnem",
+  "{0} days ago": "p\u0159ed {0} dny",
+  "1 week ago": "p\u0159ed 1 t\xfddnem",
+  "{0} weeks ago": "p\u0159ed {0} t\xfddny",
+  "1 month ago": "p\u0159ed 1 m\u011bs\xedcem",
+  "{0} months ago": "p\u0159ed {0} m\u011bs\xedci",
+  "1 year ago": "p\u0159ed 1 rokem",
+  "{0} years ago": "p\u0159ed {0} roky",
+  "SHOW MORE": "ZOBRAZIT V\xcdCE",
+  "SHOW LESS": "ZOBRAZIT M\xc9N\u011a",
+  "Resolve conversation": "Ozna\u010dit konverzaci za vy\u0159e\u0161enou",
+  "Resolve": "Vy\u0159e\u0161it",
+  "Resolve this conversation?": "Ozna\u010dit tuto konverzaci za vy\u0159e\u0161enou?",
+  "1 comment will be resolved. You can't undo this action.": "Vy\u0159e\u0161en bude 1 koment\xe1\u0159. Tuto akci nelze vr\xe1tit zp\u011bt.",
+  "{0} comments will be resolved. You can't undo this action.": "Vy\u0159e\u0161eno bude {0} koment\xe1\u0159\u016f. Tuto akci nelze vr\xe1tit zp\u011bt.",
+  "You are not allowed to resolve this conversation": "Nem\xe1te opr\xe1vn\u011bn\xed ozna\u010dit tuto konverzaci za vy\u0159e\u0161enou"
+});

@@ -1,0 +1,51 @@
+/*!
+ * TinyMCE Language Pack
+ *
+ * Copyright (c) 2023 Ephox Corporation DBA Tiny Technologies, Inc.
+ * Licensed under the Tiny commercial license. See https://www.tiny.cloud/legal/
+ */
+tinymce.addI18n("ro", {
+  "TinyComments": "TinyComentarii",
+  "Comments": "Comentarii",
+  "Add comment": "Ad\u0103ugare comentariu",
+  "Show comments": "Afi\u0219are comentarii",
+  "Delete all conversations": "\u0218terge\u021bi toate conversa\u021biile",
+  "Delete conversation": "\u0218terge\u021bi conversa\u021bia",
+  "Delete": "\u0218tergere",
+  "Clear": "Eliminare",
+  "Edit": "Editare",
+  "Comment": "Comentariu",
+  "Save": "Salvare",
+  "Add comment...": "Ad\u0103ugare comentariu...",
+  "Delete all conversations in the content? This cannot be undone.": "\u0218terge\u021bi toate conversa\u021biile din con\u021binut? Aceast\u0103 ac\u021biune nu poate fi inversat\u0103.",
+  "Are you sure you want to delete this comment?": "Sigur dori\u021bi s\u0103 \u0219terge\u021bi acest comentariu?",
+  "Delete this conversation?": "\u0218terge\u021bi aceast\u0103 conversa\u021bie?",
+  "You are not allowed to edit this comment": "Nu ave\u021bi permisiunea de a edita acest comentariu",
+  "You are not allowed to delete all the conversations": "Nu ave\u021bi permisiunea de a \u0219terge toate conversa\u021biile",
+  "You are not allowed to delete this conversation": "Nu ave\u021bi permisiunea de a \u0219terge aceast\u0103 conversa\u021bie",
+  "You are not allowed to delete this comment": "Nu ave\u021bi permisiunea de a \u0219terge acest comentariu",
+  "1 comment will be deleted. You can't undo this action.": "1 comentariu va fi \u0219ters. Nu pute\u021bi anula aceast\u0103 ac\u021biune.",
+  "{0} comments will be deleted. You can't undo this action.": "{0} comentarii vor fi \u0219terse. Nu pute\u021bi anula aceast\u0103 ac\u021biune.",
+  " (edited)": "(editat)",
+  "a moment ago": "acum c\xe2teva momente",
+  "1 minute ago": "acum 1 minut",
+  "{0} minutes ago": "acum {0} minute",
+  "1 hour ago": "acum 1 or\u0103",
+  "{0} hours ago": "acum {0} ore",
+  "1 day ago": "acum 1 zi",
+  "{0} days ago": "acum {0} zile",
+  "1 week ago": "acum 1 s\u0103pt\u0103m\xe2n\u0103",
+  "{0} weeks ago": "acum {0} s\u0103pt\u0103m\xe2ni",
+  "1 month ago": "acum 1 lun\u0103",
+  "{0} months ago": "acum {0} luni",
+  "1 year ago": "acum 1 an",
+  "{0} years ago": "acum {0} ani",
+  "SHOW MORE": "AFI\u0218ARE MAI MULTE",
+  "SHOW LESS": "AFI\u0218ARE MAI PU\u021aINE",
+  "Resolve conversation": "Remediere conversa\u021bie",
+  "Resolve": "Remediere",
+  "Resolve this conversation?": "Remedia\u021bi aceast\u0103 conversa\u021bie?",
+  "1 comment will be resolved. You can't undo this action.": "1 comentariu va fi remediat. Nu pute\u021bi anula aceast\u0103 ac\u021biune.",
+  "{0} comments will be resolved. You can't undo this action.": "{0} comentarii vor fi remediate. Nu pute\u021bi anula aceast\u0103 ac\u021biune.",
+  "You are not allowed to resolve this conversation": "Nu ave\u021bi permisiunea de a remedia aceast\u0103 conversa\u021bie"
+});

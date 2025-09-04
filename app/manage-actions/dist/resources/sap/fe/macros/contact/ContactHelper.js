@@ -1,0 +1,6 @@
+/*!
+ * SAP UI development toolkit for HTML5 (SAPUI5)
+ *      (c) Copyright 2009-2025 SAP SE. All rights reserved
+ */
+sap.ui.define(["sap/fe/base/BindingToolkit","sap/fe/core/templating/DataModelPathHelper"],function(e,t){"use strict";var n={};var i=t.getRelativePaths;var a=e.getExpressionFromAnnotation;var r=e.compileExpression;const s=function(e,t){switch(e){case"phone":return`tel:${t}`;case"mail":return`mailto:${t}`;default:return t}};n.formatUri=s;const o=function(e,t,n,i,a){const r=[];if(e){r.push(e)}if(t&&n){r.push(`${t} ${n}`)}else{if(t){r.push(t)}if(n){r.push(n)}}if(i){r.push(i)}if(a){r.push(a)}return r.join(", ")};n.formatAddress=o;const f=function(e){if(e.includes("fax")){return"{sap.fe.i18n>POPOVER_CONTACT_SECTION_FAX}"}else if(e.includes("cell")){return"{sap.fe.i18n>POPOVER_CONTACT_SECTION_MOBILE}"}else{return"{sap.fe.i18n>POPOVER_CONTACT_SECTION_PHONE}"}};n.computePhoneLabel=f;const u=function(e){let t=e.targetObject?.email?.find(e=>e.type?.includes("Communication.ContactInformationType/preferred"));t=t||e.targetObject?.email?.find(e=>e.type?.includes("Communication.ContactInformationType/work"));if(e.targetObject?.email?.length){t??=e.targetObject.email[0]}return t?r(a(t.address,i(e))):undefined};n.getMsTeamsMail=u;return n},false);
+//# sourceMappingURL=ContactHelper.js.map

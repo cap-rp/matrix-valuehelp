@@ -1,0 +1,51 @@
+/*!
+ * TinyMCE Language Pack
+ *
+ * Copyright (c) 2023 Ephox Corporation DBA Tiny Technologies, Inc.
+ * Licensed under the Tiny commercial license. See https://www.tiny.cloud/legal/
+ */
+tinymce.addI18n("eu", {
+  "TinyComments": "Iruzkin txikiak",
+  "Comments": "Iruzkinak",
+  "Add comment": "Gehitu iruzkina",
+  "Show comments": "Erakutsi iruzkinak",
+  "Delete all conversations": "Ezabatu elkarrizketa guztiak",
+  "Delete conversation": "Ezabatu elkarrizketa",
+  "Delete": "Ezabatu",
+  "Clear": "Ezabatu",
+  "Edit": "Editatu",
+  "Comment": "Iruzkina",
+  "Save": "Gorde",
+  "Add comment...": "Gehitu iruzkina\u2026",
+  "Delete all conversations in the content? This cannot be undone.": "Edukiaren elkarrizketa guztiak ezabatu nahi dituzu? Ekintza ezin izango da desegin.",
+  "Are you sure you want to delete this comment?": "Benetan ezabatu nahi duzu iruzkin hau?",
+  "Delete this conversation?": "Elkarrizketa hau ezabatu?",
+  "You are not allowed to edit this comment": "Ezin duzu iruzkin hau editatu",
+  "You are not allowed to delete all the conversations": "Ezin dituzu elkarrizketa guztiak ezabatu",
+  "You are not allowed to delete this conversation": "Ezin duzu elkarrizketa hau ezabatu",
+  "You are not allowed to delete this comment": "Ezin duzu iruzkin hau ezabatu",
+  "1 comment will be deleted. You can't undo this action.": "1 iruzkin ezabatuko da. Ezin izango duzu ekintza hau desegin.",
+  "{0} comments will be deleted. You can't undo this action.": "{0} Iruzkin ezabatuko dira. Ezin izango duzu ekintza hau desegin.",
+  " (edited)": "(editatua)",
+  "a moment ago": "duela une bat",
+  "1 minute ago": "duela 1 minutu",
+  "{0} minutes ago": "duela {0} minutu",
+  "1 hour ago": "duela 1 ordu",
+  "{0} hours ago": "duela {0} ordu",
+  "1 day ago": "duela 1 egun",
+  "{0} days ago": "duela {0} egun",
+  "1 week ago": "duela 1 aste",
+  "{0} weeks ago": "duela {0} aste",
+  "1 month ago": "duela 1 hilabete",
+  "{0} months ago": "duela {0} hilabete",
+  "1 year ago": "duela 1 urte",
+  "{0} years ago": "duela {0} urte",
+  "SHOW MORE": "ERAKUTSI GEHIAGO",
+  "SHOW LESS": "ERAKUTSI GUTXIAGO",
+  "Resolve conversation": "Elkarrizketa ebatzi",
+  "Resolve": "Ebatzi",
+  "Resolve this conversation?": "Elkarrizketa hau ebatzi?",
+  "1 comment will be resolved. You can't undo this action.": "Iruzkin 1 ebatziko da. Ezin izango duzu ekintza hau atzera bota.",
+  "{0} comments will be resolved. You can't undo this action.": "{0} iruzkin ebatziko dira. Ezin izango duzu ekintza hau atzera bota.",
+  "You are not allowed to resolve this conversation": "Ezin duzu elkarrizketa hau ebatzi"
+});

@@ -1,0 +1,50 @@
+.sapFeControlsToken {
+	.sapFeControlsTokenPropertyName {
+		color: var(--sapLinkColor);
+	}
+
+	&.sapFeTokenError {
+		background-color: @sapUiFieldInvalidBackground;
+		border: 0.0625rem solid @sapUiFieldInvalidColor;
+	}
+
+	.sapFeControlsTokenPropertyValues {
+		margin-left: 0.25rem;
+		font-weight: bold;
+		&.sapFeControlsTokenMandatory {
+			font-weight: normal;
+			color: @sapField_PlaceholderTextColor;
+		}
+	}
+	&:not(.sapFeControlsTokenMandatory) {
+		padding-right: 0.3125rem;
+	}
+	&:first-child {
+		margin-left: 0.3125rem;
+	}
+	&:nth-child(1):not(:first-line) {
+		margin-left: 0;
+	}
+}
+
+.sapFeControlsToken.sapFeControlsTokenMandatory {
+	padding-right: 0.3125rem;
+	.sapFeControlsTokenPropertyName {
+		max-width: none;
+		&::after {
+			content: "*";
+			color: @sapUiFieldRequiredColor;
+			font-family: @sapUiFontFamily;
+			font-size: @sapMFontLargeSize;
+			font-weight: bold;
+			vertical-align: middle;
+			line-height: 0;
+			margin-left: 0.125rem;
+		}
+	}
+}
+
+html.sap-desktop .sapFeControlsToken.sapFeTokenError:not(.sapMTokenSelected):not(.sapMTokenReadOnly):not(:focus):hover {
+	background-color: transparent;
+	border: 0.0625rem solid @sapUiFieldInvalidColor;
+}

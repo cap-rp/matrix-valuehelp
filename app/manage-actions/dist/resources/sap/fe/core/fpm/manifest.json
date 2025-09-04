@@ -1,0 +1,63 @@
+{
+	"_version": "1.14.0",
+	"sap.app": {
+		"id": "sap.fe.core.fpm",
+		"type": "component",
+		"applicationVersion": {
+			"version": "1.136.0"
+		},
+		"title": "Object Page",
+		"tags": {
+			"keywords": ["Object Page"]
+		},
+		"ach": "CA-UI5-FE",
+		"offline": false,
+		"resources": "resources.json"
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"config": {
+			"sapFiori2Adaptation": {
+				"style": true,
+				"hierarchy": true
+			}
+		},
+		"services": {
+			"templatedViewService": {
+				"factoryName": "sap.fe.core.services.TemplatedViewService",
+				"startup": "waitFor",
+				"settings": {
+					"converterType": "None"
+				}
+			},
+			"asyncComponentService": {
+				"factoryName": "sap.fe.core.services.AsyncComponentService",
+				"startup": "waitFor"
+			}
+		},
+		"handleValidation": true,
+		"dependencies": {
+			"minUI5Version": "${sap.ui5.core.version}",
+			"libs": {
+				"sap.f": {},
+				"sap.fe.macros": {},
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.ui.layout": {},
+				"sap.ui.mdc": {},
+				"sap.ui.fl": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		}
+	}
+}

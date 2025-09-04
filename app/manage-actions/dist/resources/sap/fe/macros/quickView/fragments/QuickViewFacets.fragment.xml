@@ -1,0 +1,92 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:contact="sap.fe.macros.contact"
+	template:require="{
+				CONTACT: 'sap/fe/macros/contact/ContactHelper',
+				MODEL: 'sap/ui/model/odata/v4/AnnotationHelper',
+				UI: 'sap/fe/core/templating/UIFormatters',
+				FieldTemplating: 'sap/fe/macros/field/FieldTemplating'
+				}"
+>
+	<template:if test="{entityType>./@com.sap.vocabularies.UI.v1.QuickViewFacets}">
+		<template:repeat list="{entityType>./@com.sap.vocabularies.UI.v1.QuickViewFacets}" var="facet">
+			<template:if test="{= ${facet>Target/$AnnotationPath}.indexOf('com.sap.vocabularies.Communication.v1.Contact') > -1 }">
+				<template:then>
+					<template:with path="facet>Target/$AnnotationPath" var="contact">
+						<f:SimpleForm
+							editable="false"
+							layout="ResponsiveGridLayout"
+							maxContainerCols="1"
+							class="sapMQuickViewPage sapUiTinyMarginBottom"
+							visible="{= UI.isQuickViewFacetVisible(${facet>@@UI.getDataModelObjectPath}) }"
+						>
+							<contact:TeamContactOptions mail="{= CONTACT.getMsTeamsMail(${contact>@@UI.getDataModelObjectPath})}" />
+							<template:if test="{= !!${facet>Label} }">
+								<Title level="H4" text="{facet>Label}" class="sapUiTinyMarginBottom" />
+							</template:if>
+							<core:Fragment fragmentName="sap.fe.macros.contact.ContactQuickViewGroup" type="XML" />
+						</f:SimpleForm>
+					</template:with>
+				</template:then>
+				<template:elseif test="{= (${facet>Target/$AnnotationPath}.indexOf('com.sap.vocabularies.UI.v1.FieldGroup') > -1)}">
+					<template:with path="facet>Target/$AnnotationPath" var="fieldGroup">
+						<f:SimpleForm
+							editable="false"
+							layout="ResponsiveGridLayout"
+							maxContainerCols="1"
+							class="sapMQuickViewPage sapUiTinyMarginBottom"
+							visible="{= UI.isQuickViewFacetVisible(${facet>@@UI.getDataModelObjectPath}) }"
+						>
+							<template:if test="{= !!${facet>Label} }">
+								<core:Title level="H4" text="{facet>Label}" />
+							</template:if>
+							<template:repeat list="{fieldGroup>Data}" var="dataField">
+								<core:Fragment fragmentName="sap.fe.macros.quickView.fragments.QuickViewFormField" type="XML" />
+							</template:repeat>
+						</f:SimpleForm>
+					</template:with>
+				</template:elseif>
+				<template:elseif test="{= (${facet>Target/$AnnotationPath}.indexOf('com.sap.vocabularies.UI.v1.Identification') > -1) }">
+					<template:with path="facet>Target/$AnnotationPath" var="identification">
+						<f:SimpleForm
+							editable="false"
+							layout="ResponsiveGridLayout"
+							maxContainerCols="1"
+							class="sapMQuickViewPage sapUiTinyMarginBottom"
+							visible="{= UI.isQuickViewFacetVisible(${facet>@@UI.getDataModelObjectPath}) }"
+						>
+							<template:if test="{= !!${facet>Label} }">
+								<core:Title level="H4" text="{facet>Label}" />
+							</template:if>
+							<template:repeat list="{identification>}" var="dataField">
+								<core:Fragment fragmentName="sap.fe.macros.quickView.fragments.QuickViewFormField" type="XML" />
+							</template:repeat>
+						</f:SimpleForm>
+					</template:with>
+				</template:elseif>
+				<template:elseif test="{= (${facet>Target/$AnnotationPath}.indexOf('com.sap.vocabularies.UI.v1.DataPoint') > -1) }">
+					<template:with path="facet>Target/$AnnotationPath" var="dataPoint">
+						<f:SimpleForm
+							editable="false"
+							layout="ResponsiveGridLayout"
+							maxContainerCols="1"
+							class="sapMQuickViewPage sapUiTinyMarginBottom"
+							visible="{= UI.isQuickViewFacetVisible(${facet>@@UI.getDataModelObjectPath}) }"
+						>
+							<template:if test="{= !!${facet>Label} }">
+								<core:Title level="H4" text="{facet>Label}" />
+							</template:if>
+							<Label text="{dataField>@@MODEL.label}" />
+							<Text
+								text="{= ${dataPoint>TargetValue@@MODEL.format} ? ${dataPoint>Value@@MODEL.format}+'/'+${dataPoint>TargetValue@@MODEL.format} : ${dataPoint>Value@@MODEL.format} }"
+							/>
+						</f:SimpleForm>
+					</template:with>
+				</template:elseif>
+			</template:if>
+		</template:repeat>
+	</template:if>
+</core:FragmentDefinition>

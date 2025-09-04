@@ -1,0 +1,419 @@
+//None
+@sapSuiteSemanticColorNone: @sapChart_Sequence_Neutral !important;
+@sapSuiteSemanticColorNoneText: @sapChart_Sequence_Neutral_TextColor !important;
+@sapSuiteSemanticColorNoneBorder: @sapChart_Sequence_Neutral_BorderColor !important;
+
+//Netural
+@sapSuiteSemanticColorNeutral: @sapChart_Sequence_Neutral !important;
+@sapSuiteSemanticColorNeutralText: @sapChart_Sequence_Neutral_TextColor !important;
+@sapSuiteSemanticColorNeutralBorder: @sapChart_Sequence_Neutral_BorderColor !important;
+
+//Good
+@sapSuiteSemanticColorGood: @sapChart_Sequence_Good !important;
+@sapSuiteSemanticColorGoodText: @sapChart_Sequence_Good_TextColor !important;
+@sapSuiteSemanticColorGoodBorder: @sapChart_Sequence_Good_BorderColor !important;
+
+//Critical
+@sapSuiteSemanticColorCritical: @sapChart_Sequence_Critical !important;
+@sapSuiteSemanticColorCriticalText: @sapChart_Sequence_Critical_TextColor !important;
+@sapSuiteSemanticColorCriticalBorder: @sapChart_Sequence_Critical_BorderColor !important;
+
+//Bad or Error
+@sapSuiteSemanticColorError: @sapChart_Sequence_Bad !important;
+@sapSuiteSemanticColorErrorText: @sapChart_Sequence_Bad_TextColor !important;
+@sapSuiteSemanticColorErrorBorder: @sapChart_Sequence_Bad_BorderColor !important;
+
+//Information (similar to sequence7)
+@sapSuiteSemanticColorInformation: @sapChart_Sequence_7 !important;
+@sapSuiteSemanticColorInformationText: @sapChart_Sequence_7_TextColor !important;
+@sapSuiteSemanticColorInformationBorder: @sapChart_Sequence_7_BorderColor !important;
+
+//Sequence1
+@sapSuiteSemanticColorSequence1: @sapChart_Sequence_1 !important;
+@sapSuiteSemanticColorSequence1Text: @sapChart_Sequence_1_TextColor !important;
+@sapSuiteSemanticColorSequence1Border: @sapChart_Sequence_1_BorderColor !important;
+
+// Sequence2
+@sapSuiteSemanticColorSequence2: @sapChart_Sequence_2 !important;
+@sapSuiteSemanticColorSequence2Text: @sapChart_Sequence_2_TextColor !important;
+@sapSuiteSemanticColorSequence2Border: @sapChart_Sequence_2_BorderColor !important;
+
+// Sequence3
+@sapSuiteSemanticColorSequence3: @sapChart_Sequence_3 !important;
+@sapSuiteSemanticColorSequence3Text: @sapChart_Sequence_3_TextColor !important;
+@sapSuiteSemanticColorSequence3Border: @sapChart_Sequence_3_BorderColor !important;
+
+// Sequence4
+@sapSuiteSemanticColorSequence4: @sapChart_Sequence_4 !important;
+@sapSuiteSemanticColorSequence4Text: @sapChart_Sequence_4_TextColor !important;
+@sapSuiteSemanticColorSequence4Border: @sapChart_Sequence_4_BorderColor !important;
+
+// Sequence5
+@sapSuiteSemanticColorSequence5: @sapChart_Sequence_5 !important;
+@sapSuiteSemanticColorSequence5Text: @sapChart_Sequence_5_TextColor !important;
+@sapSuiteSemanticColorSequence5Border: @sapChart_Sequence_5_BorderColor !important;
+
+// Sequence6
+@sapSuiteSemanticColorSequence6: @sapChart_Sequence_6 !important;
+@sapSuiteSemanticColorSequence6Text: @sapChart_Sequence_6_TextColor !important;
+@sapSuiteSemanticColorSequence6Border: @sapChart_Sequence_6_BorderColor !important;
+
+// Sequence7
+@sapSuiteSemanticColorSequence7: @sapChart_Sequence_7 !important;
+@sapSuiteSemanticColorSequence7Text: @sapChart_Sequence_7_TextColor !important;
+@sapSuiteSemanticColorSequence7Border: @sapChart_Sequence_7_BorderColor !important;
+
+// Sequence8
+@sapSuiteSemanticColorSequence8: @sapChart_Sequence_8 !important;
+@sapSuiteSemanticColorSequence8Text: @sapChart_Sequence_8_TextColor !important;
+@sapSuiteSemanticColorSequence8Border: @sapChart_Sequence_8_BorderColor !important;
+
+// Sequence9
+@sapSuiteSemanticColorSequence9: @sapChart_Sequence_9 !important;
+@sapSuiteSemanticColorSequence9Text: @sapChart_Sequence_9_TextColor !important;
+@sapSuiteSemanticColorSequence9Border: @sapChart_Sequence_9_BorderColor !important;
+
+// Sequence10
+@sapSuiteSemanticColorSequence10: @sapChart_Sequence_10 !important;
+@sapSuiteSemanticColorSequence10Text: @sapChart_Sequence_10_TextColor !important;
+@sapSuiteSemanticColorSequence10Border: @sapChart_Sequence_10_BorderColor !important;
+
+// Sequence11
+@sapSuiteSemanticColorSequence11: @sapChart_Sequence_11 !important;
+@sapSuiteSemanticColorSequence11Text: @sapChart_Sequence_11_TextColor !important;
+@sapSuiteSemanticColorSequence11Border: @sapChart_Sequence_11_BorderColor !important;
+
+// Sequence12
+@sapSuiteSemanticColorSequence12: @sapChart_Sequence_12 !important;
+@sapSuiteSemanticColorSequence12Text: @sapChart_Sequence_12_TextColor !important;
+@sapSuiteSemanticColorSequence12Border: @sapChart_Sequence_12_BorderColor !important;
+
+// Mixin to apply background colors based on semantic color
+.sapSuiteSemanticColor(@classPrefix) {
+    &.@{classPrefix}None {
+      color: @sapSuiteSemanticColorNone !important;
+    }
+    &.@{classPrefix}Neutral {
+      color: @sapSuiteSemanticColorNeutral !important;
+    }
+    &.@{classPrefix}Good {
+      color: @sapSuiteSemanticColorGood !important;
+    }
+    &.@{classPrefix}Critical {
+      color: @sapSuiteSemanticColorCritical !important;
+    }
+    &.@{classPrefix}Error {
+      color: @sapSuiteSemanticColorError !important;
+    }
+    &.@{classPrefix}Sequence1 {
+      color: @sapSuiteSemanticColorSequence1 !important;
+    }
+    &.@{classPrefix}Sequence2 {
+        color: @sapSuiteSemanticColorSequence2 !important;
+    }
+    &.@{classPrefix}Sequence3 {
+        color: @sapSuiteSemanticColorSequence3 !important;
+    }
+    &.@{classPrefix}Sequence4 {
+        color: @sapSuiteSemanticColorSequence4 !important;
+    }
+    &.@{classPrefix}Sequence5 {
+        color: @sapSuiteSemanticColorSequence5 !important;
+    }
+    &.@{classPrefix}Sequence6 {
+        color: @sapSuiteSemanticColorSequence6 !important;
+    }
+    &.@{classPrefix}Sequence7 {
+        color: @sapSuiteSemanticColorSequence7 !important;
+    }
+    &.@{classPrefix}Sequence8 {
+        color: @sapSuiteSemanticColorSequence8 !important;
+    }
+    &.@{classPrefix}Sequence9 {
+        color: @sapSuiteSemanticColorSequence9 !important;
+    }
+    &.@{classPrefix}Sequence10 {
+        color: @sapSuiteSemanticColorSequence10 !important;
+    }
+    &.@{classPrefix}Sequence11 {
+        color: @sapSuiteSemanticColorSequence11 !important;
+    }
+    &.@{classPrefix}Sequence12 {
+        color: @sapSuiteSemanticColorSequence12 !important;
+    }
+}
+
+// Mixin to apply text/content colors based on semantic color
+.sapSuiteTextSemanticColor(@classPrefix) {
+    &.@{classPrefix}None {
+        color: @sapSuiteSemanticColorNoneText !important; // Neutral Text Color
+    }
+    &.@{classPrefix}Neutral {
+        color: @sapSuiteSemanticColorNeutralText !important; // Neutral Text Color
+    }
+    &.@{classPrefix}Good {
+        color: @sapSuiteSemanticColorGoodText !important;
+    }
+    &.@{classPrefix}Critical {
+        color: @sapSuiteSemanticColorCriticalText !important;
+    }
+    &.@{classPrefix}Error {
+        color: @sapSuiteSemanticColorErrorText !important;
+    }
+    &.@{classPrefix}Sequence1 {
+        color: @sapSuiteSemanticColorSequence1Text !important;
+    }
+    &.@{classPrefix}Sequence2 {
+        color: @sapSuiteSemanticColorSequence2Text !important;
+    }
+    &.@{classPrefix}Sequence3 {
+        color: @sapSuiteSemanticColorSequence3Text !important;
+    }
+    &.@{classPrefix}Sequence4 {
+        color: @sapSuiteSemanticColorSequence4Text !important;
+    }
+    &.@{classPrefix}Sequence5 {
+        color: @sapSuiteSemanticColorSequence5Text !important;
+    }
+    &.@{classPrefix}Sequence6 {
+        color: @sapSuiteSemanticColorSequence6Text !important;
+    }
+    &.@{classPrefix}Sequence7 {
+        color: @sapSuiteSemanticColorSequence7Text !important;
+    }
+    &.@{classPrefix}Sequence8 {
+        color: @sapSuiteSemanticColorSequence8Text !important;
+    }
+    &.@{classPrefix}Sequence9 {
+        color: @sapSuiteSemanticColorSequence9Text !important;
+    }
+    &.@{classPrefix}Sequence10 {
+        color: @sapSuiteSemanticColorSequence10Text !important;
+    }
+    &.@{classPrefix}Sequence11 {
+        color: @sapSuiteSemanticColorSequence11Text !important;
+    }
+    &.@{classPrefix}Sequence12 {
+        color: @sapSuiteSemanticColorSequence12Text !important;
+    }
+}
+
+// Mixin to apply background colors based on semantic color
+.sapSuiteBackgroundSemanticColor(@classPrefix) {
+    &.@{classPrefix}None {
+      background-color: @sapSuiteSemanticColorNone !important;
+    }
+    &.@{classPrefix}Neutral {
+      background-color: @sapSuiteSemanticColorNeutral !important;
+    }
+    &.@{classPrefix}Good {
+      background-color: @sapSuiteSemanticColorGood !important;
+    }
+    &.@{classPrefix}Critical {
+      background-color: @sapSuiteSemanticColorCritical !important;
+    }
+    &.@{classPrefix}Error {
+      background-color: @sapSuiteSemanticColorError !important;
+    }
+    &.@{classPrefix}Sequence1 {
+      background-color: @sapSuiteSemanticColorSequence1 !important;
+    }
+    &.@{classPrefix}Sequence2 {
+        background-color: @sapSuiteSemanticColorSequence2 !important;
+    }
+    &.@{classPrefix}Sequence3 {
+        background-color: @sapSuiteSemanticColorSequence3 !important;
+    }
+    &.@{classPrefix}Sequence4 {
+        background-color: @sapSuiteSemanticColorSequence4 !important;
+    }
+    &.@{classPrefix}Sequence5 {
+        background-color: @sapSuiteSemanticColorSequence5 !important;
+    }
+    &.@{classPrefix}Sequence6 {
+        background-color: @sapSuiteSemanticColorSequence6 !important;
+    }
+    &.@{classPrefix}Sequence7 {
+        background-color: @sapSuiteSemanticColorSequence7 !important;
+    }
+    &.@{classPrefix}Sequence8 {
+        background-color: @sapSuiteSemanticColorSequence8 !important;
+    }
+    &.@{classPrefix}Sequence9 {
+        background-color: @sapSuiteSemanticColorSequence9 !important;
+    }
+    &.@{classPrefix}Sequence10 {
+        background-color: @sapSuiteSemanticColorSequence10 !important;
+    }
+    &.@{classPrefix}Sequence11 {
+        background-color: @sapSuiteSemanticColorSequence11 !important;
+    }
+    &.@{classPrefix}Sequence12 {
+        background-color: @sapSuiteSemanticColorSequence12 !important;
+    }
+}
+
+// Mixin to apply border colors based on semantic color
+.sapSuiteBorderSemanticColor(@classPrefix) {
+    &.@{classPrefix}None {
+      border-color: @sapSuiteSemanticColorNoneBorder !important;
+    }
+    &.@{classPrefix}Neutral {
+      border-color: @sapSuiteSemanticColorNeutralBorder !important;
+    }
+    &.@{classPrefix}Good {
+      border-color: @sapSuiteSemanticColorGoodBorder !important;
+    }
+    &.@{classPrefix}Critical {
+      border-color: @sapSuiteSemanticColorCriticalBorder !important;
+    }
+    &.@{classPrefix}Error {
+      border-color: @sapSuiteSemanticColorErrorBorder !important;
+    }
+    &.@{classPrefix}Sequence1 {
+      border-color: @sapSuiteSemanticColorSequence1Border !important;
+    }
+    &.@{classPrefix}Sequence2 {
+        border-color: @sapSuiteSemanticColorSequence2Border !important;
+    }
+    &.@{classPrefix}Sequence3 {
+        border-color: @sapSuiteSemanticColorSequence3Border !important;
+    }
+    &.@{classPrefix}Sequence4 {
+        border-color: @sapSuiteSemanticColorSequence4Border !important;
+    }
+    &.@{classPrefix}Sequence5 {
+        border-color: @sapSuiteSemanticColorSequence5Border !important;
+    }
+    &.@{classPrefix}Sequence6 {
+        border-color: @sapSuiteSemanticColorSequence6Border !important;
+    }
+    &.@{classPrefix}Sequence7 {
+        border-color: @sapSuiteSemanticColorSequence7Border !important;
+    }
+    &.@{classPrefix}Sequence8 {
+        border-color: @sapSuiteSemanticColorSequence8Border !important;
+    }
+    &.@{classPrefix}Sequence9 {
+        border-color: @sapSuiteSemanticColorSequence9Border !important;
+    }
+    &.@{classPrefix}Sequence10 {
+        border-color: @sapSuiteSemanticColorSequence10Border !important;
+    }
+    &.@{classPrefix}Sequence11 {
+        border-color: @sapSuiteSemanticColorSequence11Border !important;
+    }
+    &.@{classPrefix}Sequence12 {
+        border-color: @sapSuiteSemanticColorSequence12Border !important;
+    }
+}
+
+// Mixin to apply stroke colors based on semantic color
+.sapSuiteStrokeSemanticColor(@classPrefix) {
+    &.@{classPrefix}None {
+      stroke: @sapSuiteSemanticColorNoneBorder !important;
+    }
+    &.@{classPrefix}Neutral {
+      stroke: @sapSuiteSemanticColorNeutralBorder !important;
+    }
+    &.@{classPrefix}Good {
+      stroke: @sapSuiteSemanticColorGoodBorder !important;
+    }
+    &.@{classPrefix}Critical {
+      stroke: @sapSuiteSemanticColorCriticalBorder !important;
+    }
+    &.@{classPrefix}Error {
+      stroke: @sapSuiteSemanticColorErrorBorder !important;
+    }
+    &.@{classPrefix}Sequence1 {
+      stroke: @sapSuiteSemanticColorSequence1Border !important;
+    }
+    &.@{classPrefix}Sequence2 {
+      stroke: @sapSuiteSemanticColorSequence2Border !important;
+    }
+    &.@{classPrefix}Sequence3 {
+      stroke: @sapSuiteSemanticColorSequence3Border !important;
+    }
+    &.@{classPrefix}Sequence4 {
+      stroke: @sapSuiteSemanticColorSequence4Border !important;
+    }
+    &.@{classPrefix}Sequence5 {
+      stroke: @sapSuiteSemanticColorSequence5Border !important;
+    }
+    &.@{classPrefix}Sequence6 {
+      stroke: @sapSuiteSemanticColorSequence6Border !important;
+    }
+    &.@{classPrefix}Sequence7 {
+      stroke: @sapSuiteSemanticColorSequence7Border !important;
+    }
+    &.@{classPrefix}Sequence8 {
+      stroke: @sapSuiteSemanticColorSequence8Border !important;
+    }
+    &.@{classPrefix}Sequence9 {
+      stroke: @sapSuiteSemanticColorSequence9Border !important;
+    }
+    &.@{classPrefix}Sequence10 {
+      stroke: @sapSuiteSemanticColorSequence10Border !important;
+    }
+    &.@{classPrefix}Sequence11 {
+      stroke: @sapSuiteSemanticColorSequence11Border !important;
+    }
+    &.@{classPrefix}Sequence12 {
+      stroke: @sapSuiteSemanticColorSequence12Border !important;
+    }
+}
+
+// Mixin to apply fill colors based on semantic color
+.sapSuiteFillSemanticColor(@classPrefix) {
+    &.@{classPrefix}None {
+      fill: @sapSuiteSemanticColorNone !important;
+    }
+    &.@{classPrefix}Neutral {
+      fill: @sapSuiteSemanticColorNeutral !important;
+    }
+    &.@{classPrefix}Good {
+      fill: @sapSuiteSemanticColorGood !important;
+    }
+    &.@{classPrefix}Critical {
+      fill: @sapSuiteSemanticColorCritical !important;
+    }
+    &.@{classPrefix}Error {
+      fill: @sapSuiteSemanticColorError !important;
+    }
+    &.@{classPrefix}Sequence1 {
+      fill: @sapSuiteSemanticColorSequence1 !important;
+    }
+    &.@{classPrefix}Sequence2 {
+      fill: @sapSuiteSemanticColorSequence2 !important;
+    }
+    &.@{classPrefix}Sequence3 {
+      fill: @sapSuiteSemanticColorSequence3 !important;
+    }
+    &.@{classPrefix}Sequence4 {
+      fill: @sapSuiteSemanticColorSequence4 !important;
+    }
+    &.@{classPrefix}Sequence5 {
+      fill: @sapSuiteSemanticColorSequence5 !important;
+    }
+    &.@{classPrefix}Sequence6 {
+      fill: @sapSuiteSemanticColorSequence6 !important;
+    }
+    &.@{classPrefix}Sequence7 {
+      fill: @sapSuiteSemanticColorSequence7 !important;
+    }
+    &.@{classPrefix}Sequence8 {
+      fill: @sapSuiteSemanticColorSequence8 !important;
+    }
+    &.@{classPrefix}Sequence9 {
+      fill: @sapSuiteSemanticColorSequence9 !important;
+    }
+    &.@{classPrefix}Sequence10 {
+      fill: @sapSuiteSemanticColorSequence10 !important;
+    }
+    &.@{classPrefix}Sequence11 {
+      fill: @sapSuiteSemanticColorSequence11 !important;
+    }
+    &.@{classPrefix}Sequence12 {
+      fill: @sapSuiteSemanticColorSequence12 !important;
+    }
+}

@@ -1,0 +1,51 @@
+/*!
+ * TinyMCE Language Pack
+ *
+ * Copyright (c) 2023 Ephox Corporation DBA Tiny Technologies, Inc.
+ * Licensed under the Tiny commercial license. See https://www.tiny.cloud/legal/
+ */
+tinymce.addI18n("sk", {
+  "TinyComments": "Drobn\xe9 koment\xe1re",
+  "Comments": "Koment\xe1re",
+  "Add comment": "Prida\u0165 koment\xe1r",
+  "Show comments": "Zobrazi\u0165 koment\xe1re",
+  "Delete all conversations": "Odstr\xe1ni\u0165 v\u0161etky konverz\xe1cie",
+  "Delete conversation": "Odstr\xe1ni\u0165 konverz\xe1ciu",
+  "Delete": "Odstr\xe1ni\u0165",
+  "Clear": "Vymaza\u0165",
+  "Edit": "Upravi\u0165",
+  "Comment": "Koment\xe1r",
+  "Save": "Ulo\u017ei\u0165",
+  "Add comment...": "Prida\u0165 koment\xe1r...",
+  "Delete all conversations in the content? This cannot be undone.": "Odstr\xe1ni\u0165 v\u0161etky konverz\xe1cie z\xa0obsahu? Tento krok nie je mo\u017en\xe9 vr\xe1ti\u0165 sp\xe4\u0165.",
+  "Are you sure you want to delete this comment?": "Naozaj chcete odstr\xe1ni\u0165 tento koment\xe1r?",
+  "Delete this conversation?": "Odstr\xe1ni\u0165 t\xfato konverz\xe1ciu?",
+  "You are not allowed to edit this comment": "Nem\xe1te opr\xe1vnenie na \xfapravu tohto koment\xe1ra",
+  "You are not allowed to delete all the conversations": "Nem\xe1te opr\xe1vnenie na odstr\xe1nenie v\u0161etk\xfdch konverz\xe1ci\xed",
+  "You are not allowed to delete this conversation": "Nem\xe1te opr\xe1vnenie na odstr\xe1nenie tejto konverz\xe1cie",
+  "You are not allowed to delete this comment": "Nem\xe1te opr\xe1vnenie na odstr\xe1nenie tohto koment\xe1ra",
+  "1 comment will be deleted. You can't undo this action.": "1 koment\xe1r bude odstr\xe1nen\xfd. Tento krok nem\xf4\u017eete vr\xe1ti\u0165 sp\xe4\u0165.",
+  "{0} comments will be deleted. You can't undo this action.": "{0} koment\xe1rov bude odstr\xe1nen\xfdch. Tento krok nem\xf4\u017eete vr\xe1ti\u0165 sp\xe4\u0165.",
+  " (edited)": "(upraven\xe9)",
+  "a moment ago": "pred chv\xed\u013eou",
+  "1 minute ago": "pred 1 min\xfatou",
+  "{0} minutes ago": "pred {0} min\xfatami",
+  "1 hour ago": "pred 1 hodinou",
+  "{0} hours ago": "pred {0} hodinami",
+  "1 day ago": "pred 1 d\u0148om",
+  "{0} days ago": "pred {0} d\u0148ami",
+  "1 week ago": "pred 1 t\xfd\u017ed\u0148om",
+  "{0} weeks ago": "pred {0} t\xfd\u017ed\u0148ami",
+  "1 month ago": "pred 1 mesiacom",
+  "{0} months ago": "pred {0} mesiacmi",
+  "1 year ago": "pred 1 rokom",
+  "{0} years ago": "pred {0} rokmi",
+  "SHOW MORE": "ZOBRAZI\u0164 VIAC",
+  "SHOW LESS": "ZOBRAZI\u0164 MENEJ",
+  "Resolve conversation": "Vyrie\u0161i\u0165 konverz\xe1ciu",
+  "Resolve": "Vyrie\u0161i\u0165",
+  "Resolve this conversation?": "Vyrie\u0161i\u0165 t\xfato konverz\xe1ciu?",
+  "1 comment will be resolved. You can't undo this action.": "Vyrie\u0161i sa 1 koment\xe1r. Tento krok nem\xf4\u017eete vr\xe1ti\u0165 sp\xe4\u0165.",
+  "{0} comments will be resolved. You can't undo this action.": "Vyrie\u0161i sa {0} koment\xe1rov. Tento krok nem\xf4\u017eete vr\xe1ti\u0165 sp\xe4\u0165.",
+  "You are not allowed to resolve this conversation": "Nem\xe1te opr\xe1vnenie na vyrie\u0161enie tejto konverz\xe1cie"
+});

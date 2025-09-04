@@ -1,0 +1,6 @@
+/*!
+ * SAP UI development toolkit for HTML5 (SAPUI5)
+ *      (c) Copyright 2009-2025 SAP SE. All rights reserved
+ */
+sap.ui.define(["sap/base/Log","sap/base/util/ObjectPath","sap/ui/model/json/JSONModel"],function(t,e,n){"use strict";function r(t,e){t.prototype=Object.create(e.prototype),t.prototype.constructor=t,o(t,e)}function o(t,e){return o=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t},o(t,e)}let i=function(n){function o(t,e,r){var o;o=n.call(this)||this;o.oNode=t;o.oProps=e;o.BuildingBlockClass=r;o.$$valueAsPromise=true;return o}r(o,n);var i=o.prototype;i._getObject=function n(r,o){if(r===undefined||r===""){if(o!==undefined&&o.getPath()!=="/"){return this._getObject(o.getPath(r))}return this.oProps}if(r==="/undefinedValue"||r==="undefinedValue"){return undefined}const i=e.get(r.replace(/\//g,"."),this.oProps);if(i!==undefined){return i}if(this.oProps.hasOwnProperty(r)){return this.oProps[r]}if(!r.includes(":")&&!r.includes("/")){t.error(`Missing property ${r} on building block metadata ${this.BuildingBlockClass.name}`)}return this.oNode.getAttribute(r)};return o}(n);return i},false);
+//# sourceMappingURL=AttributeModel.js.map

@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:macrosHeader="sap.fe.macros.header">
+	<FlexBox renderType="Bare">
+		<FlexBox visible="{header>title/expandedImageVisible}">
+			<macrosHeader:HeaderAvatar
+				src="{avatar>src}"
+				initials="{avatar>initials}"
+				fallbackIcon="{avatar>fallbackIcon}"
+				displayShape="{avatar>displayShape}"
+			/>
+		</FlexBox>
+		<macrosHeader:HeaderTitleDescription VBoxType="Bare">
+			<macrosHeader:layoutData>
+				<FlexItemData minWidth="0" />
+			</macrosHeader:layoutData>
+		</macrosHeader:HeaderTitleDescription>
+	</FlexBox>
+</core:FragmentDefinition>

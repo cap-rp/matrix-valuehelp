@@ -1,0 +1,6 @@
+/*!
+ * SAP UI development toolkit for HTML5 (SAPUI5)
+ *      (c) Copyright 2009-2025 SAP SE. All rights reserved
+ */
+sap.ui.define(["sap/fe/core/helpers/ModelHelper","sap/ui/core/library"],function(e,t){"use strict";var n=t.TitleLevel;const r={isReferenceFacetPartOfPreview:function(e,t){t=t.toString();if(e.$Type==="com.sap.vocabularies.UI.v1.ReferenceFacet"){const n=e["@com.sap.vocabularies.UI.v1.PartOfPreview"];return t==="true"&&n!==false||t==="false"&&n===false}return false},create$Select:function(e,t){let n="";n=(e||[]).map(e=>e.value).join(",");if(n){n+=t?.length?","+t.join(","):""}else{n=t?.length?t.join(","):n}return n},generateBindingExpression:function(t,n){const a=n?.targetEntityType?.annotations?.Common?.SemanticKey;const i=e.getAlternateAndSecondaryKeys(n?.targetEntityType,n?.targetEntitySet);if(!t){return undefined}const s={path:t||""};if(a||i?.length){s.parameters={$select:r.create$Select(a,i)}}return JSON.stringify(s)},getFormContainerTitleLevel:function(e,t){if(!e){return t}switch(t){case n.H1:return n.H2;case n.H2:return n.H3;case n.H3:return n.H4;case n.H4:return n.H5;case n.H5:case n.H6:return n.H6;default:return n.Auto}}};return r},false);
+//# sourceMappingURL=FormHelper.js.map

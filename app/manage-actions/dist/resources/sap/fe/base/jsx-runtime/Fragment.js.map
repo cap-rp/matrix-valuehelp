@@ -1,0 +1,1 @@
+{"version":3,"file":"Fragment.js","names":["Fragment","isFragment","_exports"],"sources":["./Fragment.ts"],"sourcesContent":["export default class Fragment {\n\tstatic isFragment = true;\n}\n"],"mappings":";;;;sDAAqBA,EAAQ,SAAAA,IAAA,EAARA,EACbC,WAAa,KAAIC,EAAAF,EAAA,OAAAE,CAAA","ignoreList":[]}

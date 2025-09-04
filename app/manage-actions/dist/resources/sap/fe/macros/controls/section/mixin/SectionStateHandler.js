@@ -1,0 +1,6 @@
+/*!
+ * SAP UI development toolkit for HTML5 (SAPUI5)
+ *      (c) Copyright 2009-2025 SAP SE. All rights reserved
+ */
+sap.ui.define(["sap/fe/macros/controls/section/mixin/BaseStateHandler","sap/uxap/BlockBase"],function(t,e){"use strict";var n={};function i(t,e){t.prototype=Object.create(e.prototype),t.prototype.constructor=t,o(t,e)}function o(t,e){return o=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t},o(t,e)}let s=function(t){function o(){return t.apply(this,arguments)||this}n=o;i(o,t);var s=o.prototype;s.setupStateInteractionsForLazyRendering=function t(){if(this.isSubSectionsAvailable()){this.checkForSectionStateInteractions()}else{const t={onBeforeRendering:()=>{if(this.isSubSectionsAvailable()){this.checkForSectionStateInteractions();this.removeEventDelegate(t)}}};this.addEventDelegate(t)}};s.checkForSectionStateInteractions=function t(){if(!this.checkForStateInteractions()){const t=this.getSubSections();t.forEach(this.registerSubSectionDelegate.bind(this))}};s.isSubSectionsAvailable=function t(){return this.getSubSections().length>0};s.isBlocksAvailable=function t(){const n=this.getSubSections();return n.some(t=>{const n=t.getBlocks().filter(t=>t instanceof e);return n.length>0})};return o}(t);n=s;return n},false);
+//# sourceMappingURL=SectionStateHandler.js.map

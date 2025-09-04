@@ -8,9 +8,7 @@
     "sapui5"
   ],
   "main": "webapp/index.html",
-  "dependencies": {
-    "@cap-rp/matrixvh": "*"
-  },
+  "author": "Rohtash Poonia",
   "devDependencies": {
     "@sap/ux-ui5-tooling": "1",
     "ui5-middleware-servestatic": "^3.3.1",
@@ -28,8 +26,6 @@
     "start": "ui5 serve --port 8080 -o index.html",
     "build": "ui5 build --all",
     "deploy-config": "npx -p @sap/ux-ui5-tooling fiori add deploy-config cf"
-  },
-  "workspaces": [
-    "../../matrixvh"
-  ]
+  }
+  
 }

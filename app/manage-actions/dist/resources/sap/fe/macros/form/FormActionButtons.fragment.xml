@@ -1,0 +1,90 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:macrodata="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:dt="sap.ui.dt"
+	template:require="{
+		ID: 'sap/fe/core/helpers/StableIdHelper',
+		COMMON: 'sap/fe/macros/CommonHelper',
+		ACTION: 'sap/fe/core/converters/controls/Common/Action',
+		DEFAULTACTIONHANDLER: 'sap/fe/macros/internal/helpers/DefaultActionHandler'
+	}"
+>
+	<template:if test="{= ${action>type} === 'Menu'}">
+		<template:then>
+			<MenuButton
+				text="{action>text}"
+				icon="{= ${action>isAIOperation} ? COMMON.getAIIcon() : undefined }"
+				menuPosition="BeginBottom"
+				id="{= ID.generate(['fe',${action>id}])}"
+				visible="{action>visible}"
+				enabled="{action>enabled}"
+				class="sapUiSmallMarginBegin"
+				useDefaultActionOnly="{= DEFAULTACTIONHANDLER.getUseDefaultActionOnly(${action>})}"
+				buttonMode="{= DEFAULTACTIONHANDLER.getButtonMode(${action>})}"
+				defaultAction="{= DEFAULTACTIONHANDLER.getDefaultActionHandler(undefined, undefined, ${action>}, undefined, undefined, 'Form')}"
+				type="Transparent"
+			>
+				<menu>
+					<Menu>
+						<template:repeat list="{action>menu}" var="menuItemAction">
+							<template:if test="{= ${menuItemAction>type} === 'Default'}">
+								<template:then>
+									<MenuItem
+										core:require="{FPM: 'sap/fe/core/helpers/FPMHelper'}"
+										id="{= ID.generate(['fe',${menuItemAction>id}])}"
+										text="{menuItemAction>text}"
+										press="{= ${menuItemAction>command} ? ('cmd:' + ${menuItemAction>command}) : COMMON.buildActionWrapper(${menuItemAction>})}"
+										visible="{menuItemAction>visible}"
+										enabled="{menuItemAction>enabled}"
+									/>
+								</template:then>
+								<template:else>
+									<MenuItem
+										id="{menuItemAction>id}"
+										binding="{menuItemAction>binding}"
+										text="{menuItemAction>text}"
+										press="{= ${menuItemAction>command} ? ('cmd:' + ${menuItemAction>command}) : ${menuItemAction>press}}"
+										ariaHasPopup="{menuItemAction>requiresDialog}"
+										visible="{menuItemAction>visible}"
+										enabled="{menuItemAction>enabled}"
+										macrodata:IBNData="{menuItemAction>customData}"
+									/>
+								</template:else>
+							</template:if>
+						</template:repeat>
+					</Menu>
+				</menu>
+			</MenuButton>
+		</template:then>
+		<template:elseif test="{= ${action>type} === 'Default'}">
+			<Button
+				core:require="{FPM: 'sap/fe/core/helpers/FPMHelper'}"
+				id="{= ID.generate(['fe',${action>id}])}"
+				dt:designtime="{= (${action>visible} === 'true' || ${action>visible} === 'false')  ? undefined : 'not-adaptable-visibility'}"
+				text="{action>text}"
+				press="{= ${action>command} ? ('cmd:' + ${action>command}) : COMMON.buildActionWrapper(${action>})}"
+				type="Transparent"
+				visible="{action>visible}"
+				enabled="{action>enabled}"
+				icon="{= ${action>isAIOperation} ? COMMON.getAIIcon() : undefined }"
+			/>
+		</template:elseif>
+		<template:else>
+			<Button
+				id="{action>id}"
+				dt:designtime="{= (${action>visible} === 'true' || ${action>visible} === 'false')  ? undefined : 'not-adaptable-visibility'}"
+				binding="{action>binding}"
+				text="{action>text}"
+				icon="{= ${action>isAIOperation} ? COMMON.getAIIcon() : undefined }"
+				press="{= ${action>command} ? ('cmd:' + ${action>command}) : ${action>press}}"
+				type="{= ${action>buttonType} === 'Ghost' ? 'Transparent' : ${action>buttonType}}"
+				ariaHasPopup="{action>requiresDialog}"
+				visible="{action>visible}"
+				enabled="{action>enabled}"
+				macrodata:IBNData="{action>customData}"
+			/>
+		</template:else>
+	</template:if>
+</core:FragmentDefinition>

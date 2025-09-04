@@ -1,0 +1,51 @@
+/*!
+ * TinyMCE Language Pack
+ *
+ * Copyright (c) 2023 Ephox Corporation DBA Tiny Technologies, Inc.
+ * Licensed under the Tiny commercial license. See https://www.tiny.cloud/legal/
+ */
+tinymce.addI18n("es", {
+  "TinyComments": "TinyComments",
+  "Comments": "Comentarios",
+  "Add comment": "Agregar comentario",
+  "Show comments": "Mostrar comentarios",
+  "Delete all conversations": "Eliminar todas las conversaciones",
+  "Delete conversation": "Eliminar la conversaci\xf3n",
+  "Delete": "Eliminar",
+  "Clear": "Borrar",
+  "Edit": "Editar",
+  "Comment": "Comentario",
+  "Save": "Guardar",
+  "Add comment...": "A\xf1adir comentario...",
+  "Delete all conversations in the content? This cannot be undone.": "\xbfDesea eliminar todas las conversaciones del contenido? Esta acci\xf3n no se puede deshacer.",
+  "Are you sure you want to delete this comment?": "\xbfEst\xe1 seguro de que quieres eliminar este comentario?",
+  "Delete this conversation?": "\xbfEliminar esta conversaci\xf3n?",
+  "You are not allowed to edit this comment": "No tiene permiso para editar este comentario",
+  "You are not allowed to delete all the conversations": "No tiene permiso para eliminar todas las conversaciones",
+  "You are not allowed to delete this conversation": "No tiene permiso para eliminar esta conversaci\xf3n",
+  "You are not allowed to delete this comment": "No tiene permiso para eliminar este comentario",
+  "1 comment will be deleted. You can't undo this action.": "Se eliminar\xe1 1 comentario. No puede deshacer esta acci\xf3n.",
+  "{0} comments will be deleted. You can't undo this action.": "Se eliminar\xe1n {0} comentarios. Esta acci\xf3n no puede deshacer.",
+  " (edited)": "(editado)",
+  "a moment ago": "hace un momento",
+  "1 minute ago": "hace 1 minuto",
+  "{0} minutes ago": "hace {0} minutos",
+  "1 hour ago": "hace 1 hora",
+  "{0} hours ago": "hace {0} horas",
+  "1 day ago": "hace 1 d\xeda",
+  "{0} days ago": "hace {0} d\xedas",
+  "1 week ago": "hace 1 semana",
+  "{0} weeks ago": "hace {0} semanas",
+  "1 month ago": "hace 1 mes",
+  "{0} months ago": "hace {0} meses",
+  "1 year ago": "hace 1 a\xf1o",
+  "{0} years ago": "hace {0} a\xf1os",
+  "SHOW MORE": "MOSTRAR M\xc1S",
+  "SHOW LESS": "MOSTRAR MENOS",
+  "Resolve conversation": "Resolver conversaci\xf3n",
+  "Resolve": "Resolver",
+  "Resolve this conversation?": "\xbfResolver esta conversaci\xf3n?",
+  "1 comment will be resolved. You can't undo this action.": "Se resolver\xe1 1 comentario. No puede deshacer esta acci\xf3n.",
+  "{0} comments will be resolved. You can't undo this action.": "Se resolver\xe1n {0} comentarios. No puede deshacer esta acci\xf3n.",
+  "You are not allowed to resolve this conversation": "No tiene permiso para resolver esta conversaci\xf3n"
+});

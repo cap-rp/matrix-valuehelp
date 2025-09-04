@@ -1,0 +1,83 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:uxap="sap.uxap"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:fragments="sap.fe.templates.ObjectPage.view.fragments"
+	xmlns:macrosHeader="sap.fe.macros.header"
+	template:require="{
+		UI: 'sap/fe/core/templating/UIFormatters',
+		DATAFIELDHELPER : 'sap/fe/core/converters/helpers/DataFieldHelper',
+		OP: 'sap/fe/templates/ObjectPage/ObjectPageTemplating'
+	}"
+>
+	<template:with path="entityType>@com.sap.vocabularies.UI.v1.HeaderInfo" var="headerInfo">
+		<template:with path="header>avatar" var="avatar">
+			<uxap:expandedHeading>
+				<core:Fragment fragmentName="sap.fe.templates.ObjectPage.view.fragments.ExpandedHeading" type="XML" />
+			</uxap:expandedHeading>
+			<uxap:snappedHeading>
+				<FlexBox renderType="Bare">
+					<macrosHeader:HeaderAvatar
+						src="{avatar>src}"
+						initials="{avatar>initials}"
+						fallbackIcon="{avatar>fallbackIcon}"
+						displayShape="{avatar>displayShape}"
+					/>
+					<macrosHeader:HeaderTitleDescription>
+						<macrosHeader:layoutData>
+							<FlexItemData minWidth="0" />
+						</macrosHeader:layoutData>
+					</macrosHeader:HeaderTitleDescription>
+				</FlexBox>
+			</uxap:snappedHeading>
+			<template:if test="{= !${header>hasContent} }">
+				<uxap:heading>
+					<!-- Default, we fall back to expanded heading -->
+					<core:Fragment fragmentName="sap.fe.templates.ObjectPage.view.fragments.ExpandedHeading" type="XML" />
+				</uxap:heading>
+			</template:if>
+			<uxap:snappedContent>
+				<MessageStrip
+					visible="{= ${internal>OPBackendMessageVisible} || ${internal>OPCustomMessageVisible} || false }"
+					text="{= ${internal>OPBackendMessageText} || ${internal>OPCustomMessageText}}"
+					type="{= ${internal>OPBackendMessageType} || ${internal>OPCustomMessageType}}"
+					showIcon="true"
+					showCloseButton="true"
+					class="sapUiSmallMarginTop"
+					close=".handlers.closeOPMessageStrip"
+				/>
+				<template:if test="{converterContext>transportSelection}">
+					<fragments:TransportSelection />
+				</template:if>
+			</uxap:snappedContent>
+			<uxap:expandedContent>
+				<MessageStrip
+					visible="{= ${internal>OPBackendMessageVisible} || ${internal>OPCustomMessageVisible} || false }"
+					text="{= ${internal>OPBackendMessageText} || ${internal>OPCustomMessageText}}"
+					type="{= ${internal>OPBackendMessageType} || ${internal>OPCustomMessageType}}"
+					showIcon="true"
+					showCloseButton="true"
+					class="sapUiSmallMarginTop"
+					close=".handlers.closeOPMessageStrip"
+				/>
+				<template:if test="{converterContext>/transportSelection}">
+					<fragments:TransportSelection leadingControl="true" />
+				</template:if>
+			</uxap:expandedContent>
+			<uxap:snappedTitleOnMobile>
+				<template:with path="entityType>@com.sap.vocabularies.UI.v1.HeaderInfo" var="headerInfo">
+					<template:if test="{entityType>@com.sap.vocabularies.UI.v1.HeaderInfo/Title}">
+						<template:if test="{= !DATAFIELDHELPER.isHeaderStaticallyHidden(${headerInfo>Title@@UI.getDataModelObjectPath})}">
+							<Title
+								text="{= OP.getExpressionForTitle(${fullContextPath>@@UI.getDataModelObjectPath}, ${viewData>}, ${headerInfo>@@UI.getConverterContext})}"
+								wrapping="true"
+								level="H2"
+							/>
+						</template:if>
+					</template:if>
+				</template:with>
+			</uxap:snappedTitleOnMobile>
+		</template:with>
+	</template:with>
+</core:FragmentDefinition>

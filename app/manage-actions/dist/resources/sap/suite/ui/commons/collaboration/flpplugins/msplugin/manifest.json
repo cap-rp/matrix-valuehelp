@@ -1,0 +1,26 @@
+{
+	"_version": "1.68.0",
+	"sap.app": {
+		"id": "sap.suite.ui.commons.collaboration.flpplugins.msplugin",
+		"type": "component",
+		"title": "",
+		"description": "",
+		"applicationVersion": {
+			"version": "1.108"
+		},
+		"ach": "CA-FLP-EXT-COL"
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"dependencies": {
+			"minUI5Version": "1.108"
+		}
+	}
+}

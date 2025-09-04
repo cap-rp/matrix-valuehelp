@@ -1,0 +1,45 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	template:require="{
+				MODEL: 'sap/ui/model/odata/v4/AnnotationHelper',
+				UI: 'sap/fe/core/templating/UIFormatters',
+				FieldTemplating: 'sap/fe/macros/field/FieldTemplating'
+				}"
+>
+	<Label text="{dataField>@@MODEL.label}" />
+	<template:if test="{= FieldTemplating.getQuickViewType(${dataField>@@UI.getDataModelObjectPath})==='link'}">
+		<template:then>
+			<Link
+				text="{= FieldTemplating.getQuickViewBinding(${dataField>Value@@UI.getDataModelObjectPath}) }"
+				href="{= FieldTemplating.getQuickViewBinding(${dataField>Url@@UI.getDataModelObjectPath}) }"
+				visible="{= FieldTemplating.getVisibleExpression(${dataField>@@UI.getDataModelObjectPath})}"
+				emptyIndicatorMode="On"
+			/>
+		</template:then>
+		<template:elseif test="{= FieldTemplating.getQuickViewType(${dataField>@@UI.getDataModelObjectPath})==='phone'}">
+			<Link
+				text="{= FieldTemplating.getQuickViewBinding(${dataField>Value@@UI.getDataModelObjectPath}) }"
+				href="{= 'phone:' + FieldTemplating.getValueBinding(${dataField>Value@@UI.getDataModelObjectPath}) }"
+				visible="{= FieldTemplating.getVisibleExpression(${dataField>@@UI.getDataModelObjectPath})}"
+				emptyIndicatorMode="On"
+			/>
+		</template:elseif>
+		<template:elseif test="{= FieldTemplating.getQuickViewType(${dataField>@@UI.getDataModelObjectPath})==='email'}">
+			<Link
+				text="{= FieldTemplating.getQuickViewBinding(${dataField>Value@@UI.getDataModelObjectPath}) }"
+				href="{= 'mailto:' + FieldTemplating.getValueBinding(${dataField>Value@@UI.getDataModelObjectPath}) }"
+				visible="{= FieldTemplating.getVisibleExpression(${dataField>@@UI.getDataModelObjectPath})}"
+				emptyIndicatorMode="On"
+			/>
+		</template:elseif>
+		<template:else>
+			<Text
+				text="{= FieldTemplating.getQuickViewBinding(${dataField>Value@@UI.getDataModelObjectPath}) }"
+				visible="{= FieldTemplating.getVisibleExpression(${dataField>@@UI.getDataModelObjectPath})}"
+				emptyIndicatorMode="On"
+			/>
+		</template:else>
+	</template:if>
+</core:FragmentDefinition>

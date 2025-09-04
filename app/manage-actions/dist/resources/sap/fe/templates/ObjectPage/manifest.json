@@ -1,0 +1,172 @@
+{
+	"_version": "1.14.0",
+	"sap.app": {
+		"id": "sap.fe.templates.ObjectPage",
+		"type": "component",
+		"applicationVersion": {
+			"version": "1.136.0"
+		},
+		"title": "Object Page",
+		"tags": {
+			"keywords": ["Object Page"]
+		},
+		"ach": "CA-UI5-FE",
+		"i18n": "../messagebundle.properties",
+		"embeddedBy": "../",
+		"offline": false,
+		"resources": "resources.json"
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"config": {
+			"sapFiori2Adaptation": {
+				"style": true,
+				"hierarchy": true
+			}
+		},
+		"commands": {
+			"Cancel": {
+				"name": "Cancel",
+				"shortcut": "Escape",
+				"description": "{{CANCEL_SHORTCUT_DESCRIPTION}}"
+			},
+			"Validate": {
+				"name": "Validate",
+				"shortcut": "Enter",
+				"description": "{{VALIDATE_SHORTCUT_DESCRIPTION}}"
+			},
+			"Create": {
+				"name": "Create",
+				"shortcut": "Ctrl+Enter",
+				"description": "{{CREATE_OBJECT_SHORTCUT_DESCRIPTION}}"
+			},
+			"Cut": {
+				"name": "Cut",
+				"shortcut": "Ctrl+X",
+				"description": "{{CUT_SHORTCUT_DESCRIPTION}}"
+			},
+			"Copy": {
+				"name": "Copy",
+				"shortcut": "Ctrl+c"
+			},
+			"Paste": {
+				"name": "Paste",
+				"shortcut": "Ctrl+V",
+				"description": "{{PASTE_SHORTCUT_DESCRIPTION}}"
+			},
+			"DeleteEntry": {
+				"name": "DeleteEntry",
+				"shortcut": "Ctrl+D",
+				"description": "{{DELETE_OBJECT_SHORTCUT_DESCRIPTION}}"
+			},
+			"DeleteObject": {
+				"name": "DeleteObject",
+				"shortcut": "Ctrl+Delete",
+				"description": "{{DELETE_OBJECT_SHORTCUT_DESCRIPTION}}"
+			},
+			"Edit": {
+				"name": "Edit",
+				"shortcut": "Ctrl+E",
+				"description": "{{EDIT_SHORTCUT_DESCRIPTION}}"
+			},
+			"EasyEdit": {
+				"name": "EasyEdit",
+				"shortcut": "Ctrl+Shift+E"
+			},
+			"SwitchToActiveObject": {
+				"name": "SwitchToActiveObject",
+				"shortcut": "Ctrl+Shift+A",
+				"description": "{{SWITCH_TO_ACTIVE_OBJECT_SHORTCUT_DESCRIPTION}}"
+			},
+			"SwitchToDraftObject": {
+				"name": "SwitchToDraftObject",
+				"shortcut": "Ctrl+Shift+D",
+				"description": "{{SWITCH_TO_DRAFT_OBJECT_SHORTCUT_DESCRIPTION}}"
+			},
+			"NextTab": {
+				"name": "NextTab",
+				"shortcut": "Ctrl+F9",
+				"description": "{{NEXT_TAB_SHORTCUT_DESCRIPTION}}"
+			},
+			"PreviousTab": {
+				"name": "PreviousTab",
+				"shortcut": "Ctrl+Shift+F9",
+				"description": "{{PREVIOUS_TAB_SHORTCUT_DESCRIPTION}}"
+			},
+			"Save": {
+				"name": "Save",
+				"shortcut": "Ctrl+S",
+				"description": "{{SAVE_SHORTCUT_DESCRIPTION}}"
+			},
+			"Share": {
+				"name": "Share",
+				"shortcut": "Shift+Ctrl+S",
+				"description": "{{SHARE_SHORTCUT_DESCRIPTION}}"
+			},
+			"OpenMessageButtonMenu": {
+				"name": "OpenMessageButtonMenu",
+				"shortcut": "Ctrl+Shift+M",
+				"description": "{{OPEN_MESSAGE_BUTTON_MENU_SHORTCUT_DESCRIPTION}}"
+			},
+			"FE_PrimaryAction": {
+				"name": "FE_PrimaryAction",
+				"shortcut": "Ctrl+Enter",
+				"description": "{{PRIMARY_ACTION_SHORTCUT_DESCRIPTION}}"
+			},
+			"TableMoveElementUp": {
+				"name": "TableMoveElementUp",
+				"shortcut": "Ctrl+Alt+ArrowUp",
+				"description": "{{TABLE_MOVE_ELEMENT_UP_DESCRIPTION}}"
+			},
+			"TableMoveElementDown": {
+				"name": "TableMoveElementDown",
+				"shortcut": "Ctrl+Alt+ArrowDown",
+				"description": "{{TABLE_MOVE_ELEMENT_DOWN_DESCRIPTION}}"
+			}
+		},
+		"services": {
+			"templatedViewService": {
+				"factoryName": "sap.fe.core.services.TemplatedViewService",
+				"startup": "waitFor",
+				"settings": {
+					"converterType": "ObjectPage",
+					"viewName": "sap.fe.templates.ObjectPage.ObjectPage"
+				}
+			},
+			"asyncComponentService": {
+				"factoryName": "sap.fe.core.services.AsyncComponentService",
+				"startup": "waitFor"
+			}
+		},
+		"handleValidation": true,
+		"dependencies": {
+			"minUI5Version": "${sap.ui5.core.version}",
+			"libs": {
+				"sap.f": {},
+				"sap.fe.macros": {
+					"lazy": true
+				},
+				"sap.m": {},
+				"sap.suite.ui.microchart": {
+					"lazy": true
+				},
+				"sap.ui.core": {},
+				"sap.ui.layout": {},
+				"sap.ui.mdc": {},
+				"sap.uxap": {},
+				"sap.ui.fl": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		}
+	}
+}

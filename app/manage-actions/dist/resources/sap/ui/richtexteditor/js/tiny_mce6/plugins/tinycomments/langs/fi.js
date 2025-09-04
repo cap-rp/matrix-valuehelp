@@ -1,0 +1,51 @@
+/*!
+ * TinyMCE Language Pack
+ *
+ * Copyright (c) 2023 Ephox Corporation DBA Tiny Technologies, Inc.
+ * Licensed under the Tiny commercial license. See https://www.tiny.cloud/legal/
+ */
+tinymce.addI18n("fi", {
+  "TinyComments": "Tiny-kommentointi",
+  "Comments": "Kommentit",
+  "Add comment": "Lis\xe4\xe4 kommentti",
+  "Show comments": "N\xe4yt\xe4 kommentit",
+  "Delete all conversations": "Poista kaikki keskustelut",
+  "Delete conversation": "Poista keskustelu",
+  "Delete": "Poista",
+  "Clear": "Tyhjenn\xe4",
+  "Edit": "Muokkaa",
+  "Comment": "Kommentti",
+  "Save": "Tallenna",
+  "Add comment...": "Lis\xe4\xe4 kommentti...",
+  "Delete all conversations in the content? This cannot be undone.": "Haluatko poistaa kaikki t\xe4m\xe4n sis\xe4ll\xf6n keskustelut? T\xe4t\xe4 ei voida perua.",
+  "Are you sure you want to delete this comment?": "Haluatko varmasti poistaa t\xe4m\xe4n kommentin?",
+  "Delete this conversation?": "Haluatko poistaa t\xe4m\xe4n keskustelun?",
+  "You are not allowed to edit this comment": "Et voi muokata t\xe4t\xe4 kommenttia",
+  "You are not allowed to delete all the conversations": "Et voi poistaa kaikkia keskusteluja",
+  "You are not allowed to delete this conversation": "Et voi poistaa t\xe4t\xe4 keskustelua",
+  "You are not allowed to delete this comment": "Et voi poistaa t\xe4t\xe4 kommenttia",
+  "1 comment will be deleted. You can't undo this action.": "Yksi kommentti poistetaan. Et voi perua t\xe4t\xe4 toimenpidett\xe4.",
+  "{0} comments will be deleted. You can't undo this action.": "{0} kommenttia poistetaan. Et voi perua t\xe4t\xe4 toimenpidett\xe4.",
+  " (edited)": "(muokattu)",
+  "a moment ago": "hetki sitten",
+  "1 minute ago": "1 minuutti sitten",
+  "{0} minutes ago": "{0} minuuttia sitten",
+  "1 hour ago": "1 tunti sitten",
+  "{0} hours ago": "{0} tuntia sitten",
+  "1 day ago": "1 p\xe4iv\xe4 sitten",
+  "{0} days ago": "{0} p\xe4iv\xe4\xe4 sitten",
+  "1 week ago": "1 viikko sitten",
+  "{0} weeks ago": "{0} viikkoa sitten",
+  "1 month ago": "1 kuukausi sitten",
+  "{0} months ago": "{0} kuukautta sitten",
+  "1 year ago": "1 vuosi sitten",
+  "{0} years ago": "{0} vuotta sitten",
+  "SHOW MORE": "N\xc4YT\xc4 ENEMM\xc4N",
+  "SHOW LESS": "N\xc4YT\xc4 V\xc4HEMM\xc4N",
+  "Resolve conversation": "Poista keskustelu",
+  "Resolve": "Poista",
+  "Resolve this conversation?": "Haluatko poistaa t\xe4m\xe4n keskustelun?",
+  "1 comment will be resolved. You can't undo this action.": "Yksi kommentti poistetaan. Et voi perua t\xe4t\xe4 toimenpidett\xe4.",
+  "{0} comments will be resolved. You can't undo this action.": "{0} kommenttia poistetaan. Et voi perua t\xe4t\xe4 toimenpidett\xe4.",
+  "You are not allowed to resolve this conversation": "Et saa poistaa t\xe4t\xe4 keskustelua"
+});

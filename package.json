@@ -32,9 +32,10 @@
   "sapux": [
     "app/admin-books",
     "app/browse",
-    "app/manage-actions"
+    "app/manage-actions",
+    "com.abk.matrix"
   ],
   "workspaces": [
-    "matrixvh"
+    "*"
   ]
 }

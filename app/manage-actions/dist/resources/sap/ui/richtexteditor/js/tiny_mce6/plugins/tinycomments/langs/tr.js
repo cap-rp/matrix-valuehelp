@@ -1,0 +1,51 @@
+/*!
+ * TinyMCE Language Pack
+ *
+ * Copyright (c) 2023 Ephox Corporation DBA Tiny Technologies, Inc.
+ * Licensed under the Tiny commercial license. See https://www.tiny.cloud/legal/
+ */
+tinymce.addI18n("tr", {
+  "TinyComments": "K\u0131sa Yorumlar",
+  "Comments": "Yorumlar",
+  "Add comment": "Yorum ekle",
+  "Show comments": "Yorumlar\u0131 g\xf6ster",
+  "Delete all conversations": "T\xfcm g\xf6r\xfc\u015fmeleri sil",
+  "Delete conversation": "G\xf6r\xfc\u015fmeyi sil",
+  "Delete": "Sil",
+  "Clear": "Temizle",
+  "Edit": "D\xfczenle",
+  "Comment": "Yorum",
+  "Save": "Kaydet",
+  "Add comment...": "Yorum ekle...",
+  "Delete all conversations in the content? This cannot be undone.": "\u0130\xe7erikteki t\xfcm g\xf6r\xfc\u015fmeler silinsin mi? Bu i\u015flem geri al\u0131namaz.",
+  "Are you sure you want to delete this comment?": "Bu yorumu silmek istedi\u011finize emin misiniz?",
+  "Delete this conversation?": "Bu g\xf6r\xfc\u015fme silinsin mi?",
+  "You are not allowed to edit this comment": "Bu yorumu d\xfczenleme izniniz yok",
+  "You are not allowed to delete all the conversations": "T\xfcm g\xf6r\xfc\u015fmeleri silme izniniz yok",
+  "You are not allowed to delete this conversation": "Bu g\xf6r\xfc\u015fmeyi silme izniniz yok",
+  "You are not allowed to delete this comment": "Bu yorumu silme izniniz yok",
+  "1 comment will be deleted. You can't undo this action.": "1 yorum silinecek. Bu i\u015flem geri al\u0131namaz.",
+  "{0} comments will be deleted. You can't undo this action.": "{0} yorum silinecek. Bu i\u015flem geri al\u0131namaz.",
+  " (edited)": "(d\xfczenlendi)",
+  "a moment ago": "k\u0131sa s\xfcre \xf6nce",
+  "1 minute ago": "1 dakika \xf6nce",
+  "{0} minutes ago": "{0} dakika \xf6nce",
+  "1 hour ago": "1 saat \xf6nce",
+  "{0} hours ago": "{0} saat \xf6nce",
+  "1 day ago": "1 g\xfcn \xf6nce",
+  "{0} days ago": "{0} g\xfcn \xf6nce",
+  "1 week ago": "1 hafta \xf6nce",
+  "{0} weeks ago": "{0} hafta \xf6nce",
+  "1 month ago": "1 ay \xf6nce",
+  "{0} months ago": "{0} ay \xf6nce",
+  "1 year ago": "1 y\u0131l \xf6nce",
+  "{0} years ago": "{0} y\u0131l \xf6nce",
+  "SHOW MORE": "DAHA FAZLA G\xd6STER",
+  "SHOW LESS": "DAHA AZ G\xd6STER",
+  "Resolve conversation": "G\xf6r\xfc\u015fmeyi \xe7\xf6z\xfcmle",
+  "Resolve": "\xc7\xf6z\xfcmle",
+  "Resolve this conversation?": "Bu g\xf6r\xfc\u015fme \xe7\xf6z\xfcmlensin mi?",
+  "1 comment will be resolved. You can't undo this action.": "1 yorum \xe7\xf6z\xfcmlenecek. Bu i\u015flem geri al\u0131namaz.",
+  "{0} comments will be resolved. You can't undo this action.": "{0} yorum \xe7\xf6z\xfcmlenecek. Bu i\u015flem geri al\u0131namaz.",
+  "You are not allowed to resolve this conversation": "Bu g\xf6r\xfc\u015fmeyi \xe7\xf6z\xfcmleme izniniz yok"
+});

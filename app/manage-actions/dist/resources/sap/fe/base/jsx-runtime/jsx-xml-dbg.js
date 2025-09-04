@@ -1,0 +1,290 @@
+/*!
+ * SAP UI development toolkit for HTML5 (SAPUI5)
+ *      (c) Copyright 2009-2025 SAP SE. All rights reserved
+ */
+sap.ui.define(["sap/fe/base/BindingToolkit"], function (BindingToolkit) {
+  "use strict";
+
+  var compileExpression = BindingToolkit.compileExpression;
+  function isBindingToolkitExpression(expression) {
+    return expression?._type !== undefined;
+  }
+  const writeChildren = function (val) {
+    if (Array.isArray(val)) {
+      return val.join("");
+    } else {
+      return val;
+    }
+  };
+
+  /**
+   * Some characters needs to be escaped when used as XML attribute value, otherwise this result in incorrect XML.
+   * @param value
+   * @returns The escaped xml attribute
+   */
+  function escapeXMLAttributeValue(value) {
+    return value?.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
+  }
+  const addChildAggregation = function (aggregationChildren, aggregationName, child) {
+    if (child === undefined) {
+      return;
+    }
+    if (!aggregationChildren[aggregationName]) {
+      aggregationChildren[aggregationName] = [];
+    }
+    if (typeof child === "string") {
+      if (child.trim().length > 0) {
+        aggregationChildren[aggregationName].push(child);
+      }
+    } else if (Array.isArray(child)) {
+      child.forEach(subChild => {
+        addChildAggregation(aggregationChildren, aggregationName, subChild);
+      });
+    } else {
+      for (const childKey of Object.keys(child)) {
+        addChildAggregation(aggregationChildren, childKey, child[childKey]);
+      }
+    }
+  };
+  const isAControl = function (children) {
+    return !!children?.getMetadata;
+  };
+  const FL_DELEGATE = "fl:delegate";
+  const DT_DESIGNTIME = "dt:designtime";
+  const CORE_REQUIRE = "core:require";
+  const LOG_SOURCEPATH = "log:sourcePath";
+  const CUSTOM_ENTITYTYPE = "customData:entityType";
+  function processObjectPropertyValue(childrenObject, namespaceAlias, propertyName) {
+    // This is called when the child is
+    const aggregationProperties = [];
+    const aggregationChildren = [];
+    Object.keys(childrenObject).forEach(subPropName => {
+      const childValue = childrenObject[subPropName];
+      if (childValue !== undefined) {
+        if (typeof childValue === "object") {
+          if (Array.isArray(childValue)) {
+            aggregationChildren.push(`<${subPropName}>`);
+            for (const childrenObjectElement of childValue) {
+              aggregationChildren.push(processObjectPropertyValue(childrenObjectElement, namespaceAlias, subPropName));
+            }
+            aggregationChildren.push(`</${subPropName}>`);
+          } else {
+            // if the property is a value it needs to be serialized as a children
+            // <myObjectProp prop1='xxx', prop2='xxt'/>
+            aggregationChildren.push(processObjectPropertyValue(childValue, namespaceAlias, subPropName));
+          }
+        } else {
+          // Otherwise it's part of the main object just as another property
+          aggregationProperties.push(`${subPropName}='${escapeXMLAttributeValue(childValue.toString())}'`);
+        }
+      }
+    });
+    const namespacedProperty = namespaceAlias ? `${namespaceAlias}:${propertyName}` : propertyName;
+    return `<${namespacedProperty} ${aggregationProperties.join(" ")}>${aggregationChildren.join("\n")}</${namespacedProperty}>`;
+  }
+  function processProperties(mSettings, metadataProperties, namespaceAlias, propertiesString, aggregationString, isControl) {
+    Object.keys(metadataProperties).forEach(propertyName => {
+      if (mSettings.hasOwnProperty(propertyName) && mSettings[propertyName] !== undefined) {
+        const propertyValue = mSettings[propertyName];
+        if (propertyName === CORE_REQUIRE) {
+          propertiesString.push(`xmlns:core="sap.ui.core"`);
+        }
+        if (propertyName === FL_DELEGATE) {
+          propertiesString.push(`xmlns:fl="sap.ui.fl"`);
+        }
+        if (propertyName === DT_DESIGNTIME) {
+          propertiesString.push(`xmlns:dt="sap.ui.dt"`);
+        }
+        if (propertyName === LOG_SOURCEPATH) {
+          propertiesString.push(`xmlns:log="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"`);
+        }
+        if (propertyName === CUSTOM_ENTITYTYPE) {
+          propertiesString.push(`xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"`);
+        }
+        if (propertyValue && typeof propertyValue === "object") {
+          if (metadataProperties[propertyName].type === "sap.ui.model.Context") {
+            propertiesString.push(`${propertyName}='${propertyValue.getPath()}'`);
+          } else if (isBindingToolkitExpression(propertyValue)) {
+            propertiesString.push(`${propertyName}='${escapeXMLAttributeValue(compileExpression(propertyValue))}'`);
+          } else if (Array.isArray(propertyValue)) {
+            if (propertyValue.length === 1) {
+              const outValue = typeof propertyValue[0] === "string" ? propertyValue[0] : JSON.stringify(propertyValue[0]);
+              propertiesString.push(`${propertyName}='${outValue}'`);
+            } else {
+              const separator = metadataProperties[propertyName].type?.endsWith("[]") ? "," : " ";
+              const outValue = propertyValue.every(val => typeof val === "string") ? propertyValue.join(separator) : JSON.stringify(propertyValue);
+              propertiesString.push(`${propertyName}='${outValue}'`);
+            }
+          } else if (isControl) {
+            const propAsUI5Object = {
+              ui5object: true,
+              ...propertyValue
+            };
+            propertiesString.push(`${propertyName}='${escapeXMLAttributeValue(JSON.stringify(propAsUI5Object))}'`);
+          } else {
+            aggregationString.push(processObjectPropertyValue(propertyValue, undefined, propertyName));
+          }
+        } else if (propertyValue !== null) {
+          const prop = propertyValue;
+          propertiesString.push(`${propertyName}='${escapeXMLAttributeValue(prop.toString())}'`);
+        }
+      } else if (mSettings.children?.hasOwnProperty(propertyName) && Object.keys(mSettings.children?.[propertyName] ?? {}).length > 0) {
+        // Object / Array properties are part of the `children` aggregation and as such still need to be processed as properties
+        const childrenObject = mSettings.children?.[propertyName];
+        aggregationString.push(processObjectPropertyValue(childrenObject, namespaceAlias, propertyName));
+      }
+    });
+  }
+
+  /**
+   * Processes the command.
+   *
+   * Resolves the command set on the control via the intrinsic class attribute "jsx:command".
+   * If no command has been set or the targeted event doesn't exist, no configuration is set.
+   * @param settings Metadata of the control
+   * @param metadataEvents Settings of the control
+   */
+  function processCommand(settings, metadataEvents) {
+    const commandProperty = settings["jsx:command"];
+    if (commandProperty) {
+      const [command, eventName] = commandProperty.split("|");
+      const event = metadataEvents[eventName];
+      if (event && command.startsWith("cmd:")) {
+        settings[event.name] = command;
+      }
+    }
+    delete settings["jsx:command"];
+  }
+  function processAggregations(mSettings, metadataAggregations, namespaceAlias, defaultAggregationName, propertiesString, aggregationString) {
+    const aggregationChildren = {};
+    addChildAggregation(aggregationChildren, defaultAggregationName ?? "customData", mSettings.children);
+    const aggregationChildKeys = Object.keys(aggregationChildren);
+    let writeOnlyDefaultAggregation = false;
+    if (aggregationChildKeys.length === 1 && aggregationChildKeys[0] === defaultAggregationName) {
+      writeOnlyDefaultAggregation = true;
+    }
+    Object.keys(metadataAggregations).forEach(aggregationName => {
+      if (aggregationChildren.hasOwnProperty(aggregationName) && aggregationChildren[aggregationName].length > 0) {
+        if (aggregationName === defaultAggregationName && writeOnlyDefaultAggregation) {
+          aggregationString.push(`${writeChildren(aggregationChildren[aggregationName])}`);
+        } else {
+          aggregationString.push(`<${namespaceAlias}:${aggregationName}>
+						${writeChildren(aggregationChildren[aggregationName])}
+					</${namespaceAlias}:${aggregationName}>`);
+        }
+      }
+      if (mSettings.hasOwnProperty(aggregationName) && mSettings[aggregationName] !== undefined) {
+        if (typeof mSettings[aggregationName] === "object") {
+          propertiesString.push(`${aggregationName}='${JSON.stringify(mSettings[aggregationName])}'`);
+        } else {
+          // In some case the aggregation expect a string value (like for the tooltip), in this case we set it directly as a property
+          propertiesString.push(`${aggregationName}='${escapeXMLAttributeValue(mSettings[aggregationName])}'`);
+        }
+      }
+    });
+    return aggregationChildren;
+  }
+  const jsxXml = function (type, mSettings, key, xmlNamespaceMap, overrideNodeName) {
+    let metadata;
+    let metadataProperties;
+    let metadataEvents;
+    let controlName;
+    let metadataAggregations;
+    let defaultAggregationName;
+    let isControl = false;
+    if (type === "slot") {
+      return `<slot name="${mSettings.name}"/>`;
+    } else if (isAControl(type)) {
+      metadata = type.getMetadata();
+      metadataProperties = metadata.getAllProperties();
+      metadataProperties = {
+        ...metadataProperties,
+        ...metadata.getAllEvents(),
+        ...metadata.getAllAssociations()
+      };
+      metadataEvents = metadata.getAllEvents();
+      controlName = metadata.getName();
+      metadataAggregations = metadata.getAllAggregations();
+      defaultAggregationName = metadata.getDefaultAggregationName();
+      isControl = true;
+    } else {
+      metadata = type.metadata;
+      metadataProperties = {
+        ...metadata.properties
+      };
+      metadataAggregations = {
+        ...{
+          dependents: {},
+          customData: {}
+        },
+        ...metadata.aggregations
+      };
+      metadataEvents = {};
+      defaultAggregationName = metadata.defaultAggregation;
+      controlName = metadata.namespace + "." + metadata.name;
+    }
+    const namesSplit = controlName.split(".");
+    if (key !== undefined) {
+      mSettings["key"] = key;
+    }
+    metadataProperties["class"] = {
+      name: "class"
+    };
+    metadataProperties["id"] = {
+      name: "id"
+    };
+    metadataProperties["binding"] = {
+      name: "binding"
+    };
+    metadataProperties[FL_DELEGATE] = {
+      name: FL_DELEGATE
+    };
+    metadataProperties[DT_DESIGNTIME] = {
+      name: DT_DESIGNTIME
+    };
+    metadataProperties[CORE_REQUIRE] = {
+      name: CORE_REQUIRE
+    };
+    metadataProperties[LOG_SOURCEPATH] = {
+      name: LOG_SOURCEPATH
+    };
+    metadataProperties[CUSTOM_ENTITYTYPE] = {
+      name: CUSTOM_ENTITYTYPE
+    };
+    metadataProperties["xmlns:fl"] = {
+      name: FL_DELEGATE
+    };
+    metadataProperties["xmlns:dt"] = {
+      name: DT_DESIGNTIME
+    };
+    metadataProperties["xmlns:core"] = {
+      name: CORE_REQUIRE
+    };
+    metadataProperties["xmlns:log"] = {
+      name: LOG_SOURCEPATH
+    };
+    if (controlName === "sap.ui.core.Fragment") {
+      metadataProperties["fragmentName"] = {
+        name: "fragmentName"
+      };
+    }
+    const namespace = namesSplit.slice(0, -1);
+    const name = namesSplit[namesSplit.length - 1];
+    let namespaceAlias = namespace[namespace.length - 1];
+    if (xmlNamespaceMap[namespace.join(".")]) {
+      namespaceAlias = xmlNamespaceMap[namespace.join(".")];
+    }
+    let tagName = `${namespaceAlias}:${name}`;
+    const propertiesString = [];
+    const aggregationString = [];
+    processCommand(mSettings, metadataEvents);
+    processProperties(mSettings, metadataProperties, namespaceAlias, propertiesString, aggregationString, isControl);
+    processAggregations(mSettings, metadataAggregations, namespaceAlias, defaultAggregationName, propertiesString, aggregationString);
+    if (overrideNodeName) {
+      tagName = overrideNodeName;
+    }
+    return `<${tagName} xmlns:${namespaceAlias}="${namespace.join(".")}" ${propertiesString.join(" ")}>${aggregationString.join("")}</${tagName}>`;
+  };
+  return jsxXml;
+}, false);
+//# sourceMappingURL=jsx-xml-dbg.js.map

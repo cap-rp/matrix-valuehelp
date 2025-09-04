@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mdc="sap.ui.mdc"
+	xmlns:mdcv="sap.ui.mdc.valuehelp"
+	xmlns:mdcvc="sap.ui.mdc.valuehelp.content"
+	template:require="{
+		ValueHelpTemplating: 'sap/fe/macros/internal/valuehelp/ValueHelpTemplating',
+		ID: 'sap/fe/core/helpers/StableIdHelper'
+	}"
+>
+	<mdc:ValueHelp
+		delegate="{= ValueHelpTemplating.getDelegateConfigurationForDefineConditions(${source>propertyPath})}"
+		validateInput="false"
+	>
+		<mdc:typeahead>
+			<mdcv:Popover>
+				<mdcvc:MTable
+					useAsValueHelp="false"
+					keyPath="{source>keyPath}"
+					descriptionPath="{source>descriptionPath}"
+					caseSensitive="{source>caseSensitive}"
+				>
+					<core:Fragment fragmentName="sap.fe.macros.internal.valuehelp.ValueListTable" type="XML" />
+				</mdcvc:MTable>
+			</mdcv:Popover>
+		</mdc:typeahead>
+	</mdc:ValueHelp>
+</core:FragmentDefinition>

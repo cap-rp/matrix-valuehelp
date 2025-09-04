@@ -1,0 +1,244 @@
+.sapSuiteUiCommonsNetworkLineInvisibleWrapper {
+	stroke-width: 8;
+	stroke:  transparent; /* Transparent stroke for hit-testing. as "none" effectively disables the stroke rendering entirely, which also eliminates the hit-test area of the SVG path*/
+	pointer-events: stroke;
+	fill: none;
+}
+
+.sapSuiteUiCommonsNetworkLinePath {
+	fill: none;
+	pointer-events: none;
+	stroke: @sapNeutralBorderColor;
+}
+
+.sapSuiteUiCommonsNetworkLines .sapSuiteUiCommonsNetworkElementHighlight .sapSuiteUiCommonsNetworkLinePath,
+.sapSuiteUiCommonsNetworkLines .sapSuiteUiCommonsNetworkElementHighlight .sapSuiteUiCommonsNetworkLineArrow,
+.sapSuiteUiCommonsNetworkLines .sapSuiteUiCommonsNetworkElementHighlight .sapSuiteUiCommonsNetworkLineNipple {
+	stroke-width: 2;
+}
+// .sapSuiteUiCommonsNetworkElementSelected.sapSuiteUiCommonsNetworkElementFocus {
+// 	.sapSuiteUiCommonsNetworkCircleFocus, 
+// 	.sapSuiteUiCommonsNetworkGroupButton,
+// 	.sapSuiteUiCommonsNetworkBoxFocus {
+// 		stroke: none;
+// 	}
+// }
+
+.sapSuiteUiCommonsNetworkLines .sapSuiteUiCommonsNetworkElementSelected .sapSuiteUiCommonsNetworkLinePath,
+.sapSuiteUiCommonsNetworkLines .sapSuiteUiCommonsNetworkElementSelected .sapSuiteUiCommonsNetworkLineArrow {
+	stroke-width: 2;
+	stroke: @sapUiContentDragAndDropActiveColor;
+}
+
+.sapSuiteUiCommonsNetworkLines .sapSuiteUiCommonsNetworkElementSelected .sapSuiteUiCommonsNetworkLineArrow,
+.sapSuiteUiCommonsNetworkLines .sapSuiteUiCommonsNetworkElementSelected .sapSuiteUiCommonsNetworkLineNipple {
+	fill: @sapUiContentDragAndDropActiveColor;
+}
+
+.sapSuiteUiCommonsNetworkLineArrow {
+	fill: @sapNeutralBorderColor;
+	stroke: @sapNeutralBorderColor;
+	pointer-events: none;
+	shape-rendering: geometricPrecision !important;
+}
+
+.sapSuiteUiCommonsNetworkGraphZoomedOut {
+	stroke-width: 3;
+}
+
+/* Colors - status */
+.sapSuiteUiCommonsNetworkLineNipple {
+	fill: @sapNeutralBorderColor;
+	shape-rendering: auto !important;
+}
+.sapSuiteUiCommonsNetworkElementWarning.sapSuiteUiCommonsNetworkElementHighlight .sapSuiteUiCommonsNetworkLinePath,
+.sapSuiteUiCommonsNetworkElementWarning .sapSuiteUiCommonsNetworkLinePath {
+	stroke: @sapWarningBorderColor;
+}
+
+.sapSuiteUiCommonsNetworkElementWarning.sapSuiteUiCommonsNetworkElementHighlight .sapSuiteUiCommonsNetworkLineArrow,
+.sapSuiteUiCommonsNetworkElementWarning .sapSuiteUiCommonsNetworkLineArrow,
+.sapSuiteUiCommonsNetworkElementWarning .sapSuiteUiCommonsNetworkLineNipple {
+	stroke: @sapWarningBorderColor;
+	fill: @sapWarningBorderColor;
+}
+
+.sapSuiteUiCommonsNetworkElementError.sapSuiteUiCommonsNetworkElementHighlight .sapSuiteUiCommonsNetworkLinePath,
+.sapSuiteUiCommonsNetworkElementError .sapSuiteUiCommonsNetworkLinePath {
+	stroke: @sapErrorBorderColor;
+}
+
+.sapSuiteUiCommonsNetworkElementError.sapSuiteUiCommonsNetworkElementHighlight .sapSuiteUiCommonsNetworkLineArrow,
+.sapSuiteUiCommonsNetworkElementError .sapSuiteUiCommonsNetworkLineArrow,
+.sapSuiteUiCommonsNetworkElementError .sapSuiteUiCommonsNetworkLineNipple {
+	stroke: @sapErrorBorderColor;
+	fill: @sapErrorBorderColor;
+}
+
+.sapSuiteUiCommonsNetworkElementSuccess.sapSuiteUiCommonsNetworkElementHighlight .sapSuiteUiCommonsNetworkLinePath,
+.sapSuiteUiCommonsNetworkElementSuccess .sapSuiteUiCommonsNetworkLinePath {
+	stroke: @sapSuccessBorderColor;
+}
+
+.sapSuiteUiCommonsNetworkElementSuccess.sapSuiteUiCommonsNetworkElementHighlight .sapSuiteUiCommonsNetworkLineArrow,
+.sapSuiteUiCommonsNetworkElementSuccess .sapSuiteUiCommonsNetworkLineArrow,
+.sapSuiteUiCommonsNetworkElementSuccess .sapSuiteUiCommonsNetworkLineNipple {
+	stroke: @sapSuccessBorderColor;
+	fill: @sapSuccessBorderColor;
+}
+
+
+.sapSuiteUiCommonsNetworkElementInformation.sapSuiteUiCommonsNetworkElementHighlight .sapSuiteUiCommonsNetworkLinePath,
+.sapSuiteUiCommonsNetworkElementInformation .sapSuiteUiCommonsNetworkLinePath {
+	stroke: @sapInformationBorderColor;
+}
+
+.sapSuiteUiCommonsNetworkElementInformation.sapSuiteUiCommonsNetworkElementHighlight .sapSuiteUiCommonsNetworkLineArrow,
+.sapSuiteUiCommonsNetworkElementInformation .sapSuiteUiCommonsNetworkLineArrow,
+.sapSuiteUiCommonsNetworkElementInformation .sapSuiteUiCommonsNetworkLineNipple {
+	stroke: @sapInformationBorderColor;
+	fill: @sapInformationBorderColor;
+}
+
+
+/* Line style */
+.sapSuiteUiCommonsNetworkDashedLine {
+	stroke-dasharray: 5, 5
+}
+
+.sapSuiteUiCommonsNetworkDottedLine {
+	stroke-dasharray: 2, 2
+}
+.sapSuiteUiCommonsNetworkLine.sapSuiteUiCommonsNetworkElementFocus {
+	.sapSuiteUiCommonsNetworkLinePath{
+		stroke: @sapContent_DragAndDropActiveColor;
+	}
+	.sapSuiteUiCommonsNetworkLineArrow {
+		stroke: @sapContent_DragAndDropActiveColor;
+		fill: @sapContent_DragAndDropActiveColor;
+	}
+}
+
+.sapSuiteUiCommonsNetworkLineFocus {
+	stroke: @sapContent_FocusColor;
+	stroke-width: 2px;
+	stroke-dasharray: 0, 0;
+  	stroke-linecap: round;
+	fill: none;
+	pointer-events: none;
+	display: none;
+}
+
+.sapSuiteUiCommonsNetworkGraph.sapSuiteUiCommonsNetworkGraphLayered.sapSuiteUiCommonsNetworkGraphCrispEdges .sapSuiteUiCommonsNetworkGraphSvg path.sapSuiteUiCommonsNetworkLineFocus {
+  	shape-rendering: geometricprecision;
+}
+
+.sapSuiteUiCommonsNetworkElementFocus .sapSuiteUiCommonsNetworkLineFocus {
+	display: block;
+}
+
+.sapSuiteUiCommonsNetworkGraphMap .sapSuiteUiCommonsNetworkLine .sapSuiteUiCommonsNetworkLinePath {
+	stroke-width: 2px;
+	shape-rendering: crispEdges;
+}
+
+.sapSuiteUiCommonsNetworkGraphLineTooltip {
+	background-color: @sapContent_ForegroundColor;
+	align-self: flex-start;
+	padding: 8px;
+	color: @sapTextColor;
+	margin-right: 10px;
+	border-radius: 5px;
+	border: @sapUiElementBorderWidth @sapUiContentFocusStyle @sapUiContentDragAndDropActiveColor;
+	position: relative;
+}
+
+.sapSuiteUiCommonsNetworkGraphLineTooltipArrow {
+	font-family:@sapUiContentIconFontFamily;
+	margin-left: 8px;
+	vertical-align: middle;
+	font-size: @sapMFontMediumSize;
+}
+
+.sapSuiteUiCommonsNetworkGraphLineTooltipText {
+	white-space: nowrap;
+	user-select: none;
+	font-size: @sapMFontMediumSize;
+}
+
+.sapSuiteUiCommonsNetworkGraphDivShader {
+	position: absolute;
+	z-index: 101;
+	opacity: 0.3;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+
+	display: none;
+
+	background: white;
+}
+
+
+.sapSuiteUiCommonsNetworkGraphDivInnerCloned {
+	position: absolute !important;
+	top: 0 !important;;
+	z-index: -1 !important;;
+	border: @sapUiFieldBorderStyle !important;
+}
+
+.sapSuiteUiCommonsNetworkGraphTooltips {
+	position: absolute;
+	transform-origin: top left;
+	z-index: 100;
+	pointer-events: none;
+}
+
+.sapSuiteUiCommonsNetworkGraphTooltipLeftArrow {
+	position: absolute;
+	left: -9px;
+	width: 0;
+	height: 0;
+	border-top: 10px @sapUiContentFocusStyle @sapUiButtonLiteBorderColor;
+	border-bottom: 10px @sapUiContentFocusStyle @sapUiButtonLiteBorderColor;
+	border-right:9px @sapUiContentFocusStyle @sapUiContentDragAndDropActiveColor;
+}
+
+.sapSuiteUiCommonsNetworkGraphTooltipRightArrow {
+	position: absolute;
+	width: 0;
+	right: -9px;
+	height: 0;
+	border-top: 10px @sapUiContentFocusStyle @sapUiButtonLiteBorderColor;
+	border-bottom: 10px @sapUiContentFocusStyle @sapUiButtonLiteBorderColor;
+	border-left: 9px @sapUiContentFocusStyle @sapUiContentDragAndDropActiveColor;
+}
+
+.sapSuiteUiCommonsNetworkGraphTooltipBottomArrow {
+	position: absolute;
+	bottom: -9px;
+	width: 0;
+	height: 0;
+	border-left: 10px @sapUiContentFocusStyle @sapUiButtonLiteBorderColor;
+	border-right: 10px @sapUiContentFocusStyle @sapUiButtonLiteBorderColor;
+	border-top: 9px solid @sapUiContentDragAndDropActiveColor;
+}
+
+.sapSuiteUiCommonsNetworkGraphTooltipTopArrow {
+	position: absolute;
+	top: -9px;
+	width: 0;
+	height: 0;
+	border-left: 10px @sapUiContentFocusStyle @sapUiButtonLiteBorderColor;
+	border-right: 10px @sapUiContentFocusStyle @sapUiButtonLiteBorderColor;
+	border-bottom: 9px @sapUiContentFocusStyle @sapUiContentDragAndDropActiveColor;
+}
+
+.sapSuiteUiCommonsNetworkGraphLineTooltipDualArrow {
+	margin-right: -15px;
+}
+
+.sapSuiteUiCommonsNetworkLineDisplayNone {
+	display: none;
+}
+

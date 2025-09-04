@@ -1,0 +1,229 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:macrodata="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:macro="sap.fe.macros"
+	xmlns:macroShare="sap.fe.macros.share"
+	xmlns:macroAI="sap.fe.macros.ai"
+	xmlns:components="sap.fe.templates.ObjectPage.components"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:dt="sap.ui.dt"
+	template:require="{
+		ID: 'sap/fe/core/helpers/StableIdHelper',
+		OP: 'sap/fe/templates/ObjectPage/ObjectPageTemplating',
+		MODEL: 'sap/ui/model/odata/v4/AnnotationHelper',
+		UI: 'sap/fe/core/templating/UIFormatters',
+		CRIT: 'sap/fe/core/templating/CriticalityFormatters',
+		COMMON: 'sap/fe/macros/CommonHelper',
+		ACTION: 'sap/fe/core/converters/controls/Common/Action',
+		DATAFIELDANNOTATIONS : 'sap/fe/core/converters/annotations/DataField',
+		FIELD: 'sap/fe/macros/field/FieldHelper',
+		DEFAULTACTIONHANDLER: 'sap/fe/macros/internal/helpers/DefaultActionHandler',
+		FE_MODEL: 'sap/fe/core/helpers/ModelHelper'
+	}"
+>
+	<template:if test="{converterContext>header/actions}">
+		<template:repeat list="{converterContext>header/actions}" var="headerAction">
+			<template:if
+				test="{= ${headerAction>type} === 'DraftActions' &amp;&amp; OP.checkDraftState(${entitySet>@@UI.getConverterContext}) }"
+			>
+				<template:then>
+					<components:DraftToggle
+						contextPath="{entitySet>@@COMMON.getContextPath}"
+						id="fe::StandardAction::SwitchDraftAndActiveObject"
+						dt:designtime="not-adaptable"
+					/>
+					<template:if test="{= !${entitySet>@@FE_MODEL.isCollaborationDraftSupported} }">
+						<ToolbarSpacer width="10px" />
+					</template:if>
+				</template:then>
+				<template:elseif test="{= ${headerAction>type} === 'CollaborationAvatars' }">
+					<template:if test="{= ${entitySet>@@FE_MODEL.isCollaborationDraftSupported} }">
+						<components:CollaborationDraft contextPath="{entitySet>@@COMMON.getMetaPath}" id="fe::CollaborationDraft" />
+						<ToolbarSpacer />
+					</template:if>
+				</template:elseif>
+				<template:elseif test="{= OP.isManifestAction(${headerAction>}) }">
+					<template:if test="{= ${headerAction>type} === 'Menu'}">
+						<template:then>
+							<template:with path="headerAction>defaultAction/annotationPath" var="dataFieldForDefaultAction">
+								<template:with
+									path="dataFieldForDefaultAction>Action"
+									helper="COMMON.getActionContext"
+									var="defaultActionContext"
+								>
+									<MenuButton
+										core:require="{FPM: 'sap/fe/core/helpers/FPMHelper'}"
+										text="{headerAction>text}"
+										type="Ghost"
+										menuPosition="BeginBottom"
+										id="{= ID.generate(['fe',${headerAction>id}])}"
+										visible="{headerAction>visible}"
+										enabled="{headerAction>enabled}"
+										useDefaultActionOnly="{= DEFAULTACTIONHANDLER.getUseDefaultActionOnly(${headerAction>})}"
+										buttonMode="{= DEFAULTACTIONHANDLER.getButtonMode(${headerAction>})}"
+										defaultAction="{= OP.getDefaultActionHandler(${converterContext>header}, ${headerAction>}, ${dataFieldForDefaultAction>}, ${entitySet>@sapui.name})}"
+										icon="{= ${headerAction>isAIOperation} ? COMMON.getAIIcon() : undefined }"
+									>
+										<menu>
+											<Menu>
+												<template:repeat list="{headerAction>menu}" var="menuItemAction">
+													<template:with path="menuItemAction>annotationPath" var="dataField">
+														<template:if test="{= ${menuItemAction>type} === 'ForAction'}">
+															<template:then>
+																<MenuItem
+																	id="{= ID.generate(['fe', ${dataField>@@UI.getDataModelObjectPath}]) }"
+																	text="{dataField>Label}"
+																	press="{= ${menuItemAction>command} ? ('cmd:' + ${menuItemAction>command}) : OP.getPressExpressionForEdit(${dataField>}, ${entitySet>@sapui.name}, ${headerAction>}) }"
+																	visible="{menuItemAction>visible}"
+																	enabled="{menuItemAction>enabled}"
+																	macrodata:annotatedActionIdentifier="{= ID.generate([${dataField>@@UI.getDataModelObjectPath}]) }"
+																/>
+															</template:then>
+															<template:elseif test="{= ${menuItemAction>type} === 'ForNavigation'}">
+																<MenuItem
+																	id="{= ID.generate(['fe', ${dataField>@@UI.getDataModelObjectPath}]) }"
+																	text="{dataField>Label}"
+																	press="{= ${menuItemAction>command} ? ('cmd:' + ${menuItemAction>command}) : ${menuItemAction>press}}"
+																	enabled="{menuItemAction>enabled}"
+																	visible="{menuItemAction>visible}"
+																	macrodata:IBNData="{menuItemAction>customData}"
+																/>
+															</template:elseif>
+															<template:else>
+																<MenuItem
+																	id="{= ID.generate(['fe',${menuItemAction>id}])}"
+																	text="{menuItemAction>text}"
+																	press="{= ${menuItemAction>command} ? ('cmd:' + ${menuItemAction>command}) : COMMON.buildActionWrapper(${menuItemAction>}, ${headerAction>})}"
+																	visible="{menuItemAction>visible}"
+																	enabled="{menuItemAction>enabled}"
+																/>
+															</template:else>
+														</template:if>
+													</template:with>
+												</template:repeat>
+											</Menu>
+										</menu>
+										<layoutData>
+											<OverflowToolbarLayoutData priority="Low" />
+										</layoutData>
+									</MenuButton>
+								</template:with>
+							</template:with>
+						</template:then>
+						<template:else>
+							<Button
+								core:require="{FPM: 'sap/fe/core/helpers/FPMHelper'}"
+								id="{= ID.generate(['fe',${headerAction>id}])}"
+								dt:designtime="{= (${headerAction>visible} === 'true' || ${headerAction>visible} === 'false')  ? undefined : 'not-adaptable-visibility'}"
+								text="{headerAction>text}"
+								press="{= ${headerAction>command} ? ('cmd:' + ${headerAction>command}) : COMMON.buildActionWrapper(${headerAction>})}"
+								type="Ghost"
+								visible="{headerAction>visible}"
+								enabled="{headerAction>enabled}"
+								icon="{= ${headerAction>isAIOperation} ? COMMON.getAIIcon() : undefined }"
+							>
+								<layoutData>
+									<OverflowToolbarLayoutData priority="Low" />
+								</layoutData>
+							</Button>
+						</template:else>
+					</template:if>
+				</template:elseif>
+				<template:elseif test="{= ${headerAction>type} === 'Primary'}">
+					<template:with path="entitySet>" helper="OP.getEditAction" var="editAction">
+						<template:with path="editAction>@Org.OData.Core.V1.OperationAvailable" var="operationAvailable">
+							<template:if test="{= ${operationAvailable>} !== false }">
+								<macro:EditButton
+									id="fe::BBStandardAction::Edit"
+									text="{sap.fe.i18n>C_COMMON_OBJECT_PAGE_EDIT}"
+									enabled="{headerAction>enabled}"
+									visible="{headerAction>visible}"
+								>
+									<macro:layoutData>
+										<OverflowToolbarLayoutData priority="High" />
+									</macro:layoutData>
+								</macro:EditButton>
+							</template:if>
+						</template:with>
+					</template:with>
+				</template:elseif>
+				<template:elseif test="{= ${headerAction>type} === 'Secondary'}">
+					<Button
+						id="fe::StandardAction::Delete"
+						dt:designtime="not-adaptable"
+						type="Ghost"
+						text="{sap.fe.i18n>C_COMMON_DELETE}"
+						visible="{headerAction>visible}"
+						enabled="{headerAction>enabled}"
+						press="cmd:DeleteObject"
+						ariaHasPopup="Dialog"
+					>
+						<layoutData>
+							<OverflowToolbarLayoutData priority="Low" />
+						</layoutData>
+					</Button>
+				</template:elseif>
+				<template:elseif test="{= ${headerAction>type} === 'ForAction' || ${headerAction>type} === 'Copy'}">
+					<template:with path="headerAction>annotationPath" var="dataField">
+						<template:if
+							test="{= ${dataField>$Type} === 'com.sap.vocabularies.UI.v1.DataFieldForAction' &amp;&amp; ${dataField>Determining} !== true }"
+						>
+							<template:with path="dataField>Action" helper="COMMON.getActionContext" var="actionContext">
+								<template:with path="dataField>Action" helper="COMMON.getPathToBoundActionOverload" var="isBound">
+									<template:if
+										test="{= (${headerAction>visible} !== 'false') &amp;&amp; (${isBound>$IsBound} !== true || ${actionContext>@Org.OData.Core.V1.OperationAvailable} !== false) }"
+									>
+										<Button
+											id="{= ID.generate(['fe', ${dataField>@@UI.getDataModelObjectPath}]) }"
+											dt:designtime="{= (${headerAction>visible} === 'true' || ${headerAction>visible} === 'false')  ? undefined : 'not-adaptable-visibility'}"
+											text="{= ${headerAction>text} ? ${headerAction>text} : ${dataField>Label} }"
+											press="{= ${headerAction>command} ? ('cmd:' + ${headerAction>command}) : OP.getPressExpressionForEdit(${dataField>}, ${entitySet>@sapui.name}, ${headerAction>}) }"
+											visible="{headerAction>visible}"
+											enabled="{headerAction>enabled}"
+											type="{= CRIT.buildExpressionForCriticalityButtonType(${dataField>@@UI.getDataModelObjectPath}) }"
+											ariaHasPopup="{= DATAFIELDANNOTATIONS.isDataModelObjectPathForActionWithDialog(${actionContext>@@UI.getDataModelObjectPath})}"
+											macrodata:annotatedActionIdentifier="{= ID.generate([${dataField>@@UI.getDataModelObjectPath}]) }"
+											icon="{= ${headerAction>isAIOperation} ? COMMON.getAIIcon() : undefined }"
+										>
+											<layoutData>
+												<OverflowToolbarLayoutData priority="Low" />
+											</layoutData>
+										</Button>
+									</template:if>
+								</template:with>
+							</template:with>
+						</template:if>
+					</template:with>
+				</template:elseif>
+				<template:elseif test="{= ${headerAction>type} === 'ForNavigation'}">
+					<template:with path="headerAction>annotationPath" var="dataField">
+						<Button
+							id="{= ID.generate(['fe', ${dataField>@@UI.getDataModelObjectPath}]) }"
+							dt:designtime="{= (${headerAction>visible} === 'true' || ${headerAction>visible} === 'false')  ? undefined : 'not-adaptable-visibility'}"
+							text="{headerAction>text}"
+							press="{= ${headerAction>command} ? ('cmd:' + ${headerAction>command}) : ${headerAction>press}}"
+							enabled="{headerAction>enabled}"
+							type="{headerAction>buttonType}"
+							visible="{headerAction>visible}"
+							macrodata:IBNData="{headerAction>customData}"
+						>
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low" />
+							</layoutData>
+						</Button>
+					</template:with>
+				</template:elseif>
+			</template:if>
+		</template:repeat>
+	</template:if>
+	<macroAI:SummarizationButton id="fe::Summarize" />
+	<core:Fragment fragmentName="sap.fe.templates.ObjectPage.view.fragments.RelatedApps" type="XML" />
+	<macro:Share id="fe::Share" visible="{= OP.getShareButtonVisibility(${viewData>/}) }">
+		<macro:msTeamsOptions>
+			<macroShare:MsTeamsOptions enableCard="{= ${viewData>/viewLevel} === 1}" />
+		</macro:msTeamsOptions>
+		<macro:shareOptions showCollaborationManager="true" />
+	</macro:Share>
+</core:FragmentDefinition>

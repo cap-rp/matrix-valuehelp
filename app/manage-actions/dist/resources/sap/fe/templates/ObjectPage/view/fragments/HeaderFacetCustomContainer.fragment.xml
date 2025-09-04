@@ -1,0 +1,41 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:fpm="sap.fe.macros.fpm"
+	xmlns:fe="sap.fe.templates.ObjectPage.controls"
+	xmlns:dt="sap.ui.dt"
+	xmlns:fl="sap.ui.fl"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	template:require="{
+		ID: 'sap/fe/core/helpers/StableIdHelper',
+		COMMON: 'sap/fe/macros/CommonHelper'
+	}"
+>
+	<fe:StashableHBox
+		id="{converterHeaderFacet>containerId}"
+		dt:designtime="{= ${converterHeaderFacet>flexSettings/designtime} === 'Default' ? 'sap/fe/templates/ObjectPage/designtime/StashableHBox.designtime' : ${converterHeaderFacet>flexSettings/designtime}}"
+		fl:flexibility="sap/fe/templates/ObjectPage/flexibility/StashableHBox.flexibility"
+		class="sapUiMediumMarginEnd sapUiSmallMarginBottom"
+		visible="{converterHeaderFacet>visible}"
+		fallbackTitle="{converterHeaderFacet>title}"
+		binding="{converterHeaderFacet>binding}"
+		stashed="{converterHeaderFacet>stashed}"
+	>
+		<VBox displayInline="true">
+			<template:if test="{= !!${converterHeaderFacet>title} &amp;&amp; !!${converterHeaderFacet>subTitle} }">
+				<template:then>
+					<Title level="H3" text="{converterHeaderFacet>title}" />
+					<Text text="{converterHeaderFacet>subTitle}" class="sapUiSmallMarginBottom" />
+				</template:then>
+				<template:elseif test="{= !!${converterHeaderFacet>title} }">
+					<Title level="H3" text="{converterHeaderFacet>title}" class="sapUiSmallMarginBottom" />
+				</template:elseif>
+			</template:if>
+			<fpm:CustomFragment
+				id="{converterHeaderFacet>id}"
+				fragmentName="{converterHeaderFacet>fragmentName}"
+				contextPath="{entitySet>}"
+			/>
+		</VBox>
+	</fe:StashableHBox>
+</core:FragmentDefinition>

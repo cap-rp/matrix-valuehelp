@@ -1,0 +1,6 @@
+/*!
+ * SAP UI development toolkit for HTML5 (SAPUI5)
+ *      (c) Copyright 2009-2025 SAP SE. All rights reserved
+ */
+sap.ui.define(["sap/fe/core/CommonUtils","sap/fe/macros/table/delegates/TableDelegate"],function(e,a){"use strict";const r=Object.assign({},a,{apiVersion:2,_internalUpdateBindingInfo:function(e,r){a._internalUpdateBindingInfo.apply(this,[e,r]);const n=e.getRowBinding()?.getAggregation();const t=e.getPayload();r.parameters.$$aggregation={...r.parameters.$$aggregation,...{hierarchyQualifier:t?.hierarchyQualifier,createInPlace:t?.createInPlace?true:undefined},...{expandTo:r.parameters.$$aggregation?.search?Number.MAX_SAFE_INTEGER:n?.expandTo??t?.initialExpansionLevel}};const i=e.getBindingContext("internal");i.setProperty("isSorted",r.sorter!==undefined&&r.sorter.length>0)},updateBindingInfoWithSearchQuery:function(a,r,n){a.filters=n;if(r.search){a.parameters.$$aggregation={...a.parameters.$$aggregation,...{search:e.normalizeSearchTerm(r.search)}}}else{delete a.parameters?.$$aggregation?.search}}});return r},false);
+//# sourceMappingURL=TreeTableDelegate.js.map

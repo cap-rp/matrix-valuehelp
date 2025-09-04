@@ -1,0 +1,6 @@
+/*!
+ * SAP UI development toolkit for HTML5 (SAPUI5)
+ *      (c) Copyright 2009-2025 SAP SE. All rights reserved
+ */
+sap.ui.define(["sap/fe/base/BindingToolkit","sap/m/AvatarShape"],function(e,n){"use strict";var t={};var a=e.ifElse;var r=e.getExpressionFromAnnotation;var o=e.compileExpression;const i=e=>r(e.getEntityType().annotations.Common?.IsNaturalPerson);const s=e=>o(a(e,n.Circle,n.Square));const l=e=>o(a(e,"sap-icon://person-placeholder","sap-icon://product"));const p=e=>{const n=e.getEntityType().annotations?.UI?.HeaderInfo;if(!n||n&&!n.ImageUrl&&!n.TypeImageUrl){return undefined}if(n.ImageUrl&&n.TypeImageUrl){return o(r(n.TypeImageUrl))}return l(i(e))};const c=e=>{const n=e.getEntityType().annotations?.UI?.HeaderInfo;if(!n||!(n.ImageUrl||n.TypeImageUrl)){return undefined}return o(r(n.ImageUrl||n.TypeImageUrl))};const I=e=>{const n=e.getEntityType().annotations?.UI?.HeaderInfo;const t=n&&(n.ImageUrl||n.TypeImageUrl||n.Initials);if(!t){return undefined}return{src:c(e),initials:o(r(n?.Initials,[],"")),fallbackIcon:p(e),displayShape:s(i(e))}};t.getAvatar=I;return t},false);
+//# sourceMappingURL=Avatar.js.map

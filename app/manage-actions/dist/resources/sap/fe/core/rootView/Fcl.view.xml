@@ -1,0 +1,34 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.f" displayBlock="true" height="100%" controllerName="sap.fe.core.rootView.Fcl">
+	<FlexibleColumnLayout
+		id="appContent"
+		columnsDistributionChange="onColumnsDistributionChange"
+		backgroundDesign="Transparent"
+		restoreFocusOnBackNavigation="true"
+		autoFocus="false"
+	>
+		<layoutData>
+			<FlexibleColumnLayoutData>
+				<desktopLayoutData>
+					<FlexibleColumnLayoutDataForDesktop
+						twoColumnsBeginExpanded="{internal>/FCLColumnsDistribution/desktop/TwoColumnsBeginExpanded}"
+						twoColumnsMidExpanded="{internal>/FCLColumnsDistribution/desktop/TwoColumnsMidExpanded}"
+						threeColumnsBeginExpandedEndHidden="{internal>/FCLColumnsDistribution/desktop/ThreeColumnsBeginExpandedEndHidden}"
+						threeColumnsEndExpanded="{internal>/FCLColumnsDistribution/desktop/ThreeColumnsEndExpanded}"
+						threeColumnsMidExpanded="{internal>/FCLColumnsDistribution/desktop/ThreeColumnsMidExpanded}"
+						threeColumnsMidExpandedEndHidden="{internal>/FCLColumnsDistribution/desktop/ThreeColumnsMidExpandedEndHidden}"
+					/>
+				</desktopLayoutData>
+				<tabletLayoutData>
+					<FlexibleColumnLayoutDataForTablet
+						twoColumnsBeginExpanded="{internal>/FCLColumnsDistribution/tablet/TwoColumnsBeginExpanded}"
+						twoColumnsMidExpanded="{internal>/FCLColumnsDistribution/tablet/TwoColumnsMidExpanded}"
+						threeColumnsBeginExpandedEndHidden="{internal>/FCLColumnsDistribution/tablet/ThreeColumnsBeginExpandedEndHidden}"
+						threeColumnsEndExpanded="{internal>/FCLColumnsDistribution/tablet/ThreeColumnsEndExpanded}"
+						threeColumnsMidExpanded="{internal>/FCLColumnsDistribution/tablet/ThreeColumnsMidExpanded}"
+						threeColumnsMidExpandedEndHidden="{internal>/FCLColumnsDistribution/tablet/ThreeColumnsMidExpandedEndHidden}"
+					/>
+				</tabletLayoutData>
+			</FlexibleColumnLayoutData>
+		</layoutData>
+	</FlexibleColumnLayout>
+</mvc:View>

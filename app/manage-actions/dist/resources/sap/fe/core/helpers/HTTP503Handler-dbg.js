@@ -1,0 +1,133 @@
+/*!
+ * SAP UI development toolkit for HTML5 (SAPUI5)
+ *      (c) Copyright 2009-2025 SAP SE. All rights reserved
+ */
+sap.ui.define(["sap/fe/core/controllerextensions/BusyLocker", "sap/fe/core/helpers/PromiseKeeper", "sap/m/Button", "sap/m/Dialog", "sap/m/ProgressIndicator", "sap/m/Text", "sap/m/VBox"], function (BusyLocker, PromiseKeeper, Button, Dialog, ProgressIndicator, Text, VBox) {
+  "use strict";
+
+  const handler = {
+    /**
+     * Creates a dialog from settings (exported for test purposes).
+     * @param settings
+     * @returns The dialog
+     */
+    createDialog(settings) {
+      return new Dialog(settings);
+    },
+    /**
+     * Displays a busy indicator for a given amount of time.
+     * @param delayInMs
+     * @param rootControl
+     * @returns A promise that resolves after the given amount of time.
+     */
+    async _handleDelayBusy(delayInMs, rootControl) {
+      BusyLocker.lock(rootControl);
+      return new Promise(resolve => {
+        setTimeout(() => {
+          BusyLocker.unlock(rootControl);
+          resolve(undefined);
+        }, delayInMs);
+      });
+    },
+    /**
+     * Displays a dialog with a progress bar and a text for a given amount of time.
+     * @param delayInMs
+     * @param error
+     * @param error.retryAfter
+     * @param resourceModel
+     * @returns A promise that resolves after the given amount of time, or rejected if the user clicks Cancel.
+     */
+    async _handleDelayProgressBar(delayInMs, error, resourceModel) {
+      const promiseKeeper = new PromiseKeeper();
+      const dialogTextRemaining = new Text();
+      const dialogProgress = new ProgressIndicator({
+        displayOnly: true,
+        percentValue: 0,
+        showValue: false
+      });
+      const content = new VBox({
+        items: [new Text({
+          text: resourceModel.getText("C_MESSAGE_HANDLING_SAPFE_503_TITLE")
+        })]
+      });
+      if (error.message) {
+        content.addItem(new Text({
+          text: error.message.replaceAll(/[\n\r]/g, " ")
+        }));
+      }
+      content.addItem(dialogTextRemaining);
+      content.addItem(dialogProgress);
+      function updateContent() {
+        const remainingTime = error.retryAfter.getTime() - Date.now();
+        if (remainingTime <= 0) {
+          return false;
+        } else {
+          const progress = 100 - remainingTime / delayInMs * 100;
+          dialogProgress.setPercentValue(progress);
+          const remainingInSeconds = Math.ceil(remainingTime / 1000);
+          const remainingMinutes = Math.floor(remainingInSeconds / 60);
+          const remainingSeconds = remainingInSeconds % 60;
+          if (remainingMinutes > 0) {
+            dialogTextRemaining.setText(resourceModel.getText("C_UNAVAILABLE_SERVER_MESSAGE_MINUTES_SECONDS", [remainingMinutes, remainingSeconds]));
+          } else {
+            dialogTextRemaining.setText(resourceModel.getText("C_UNAVAILABLE_SERVER_MESSAGE_SECONDS", [remainingSeconds]));
+          }
+          return true;
+        }
+      }
+      const progressAnimationTimer = setInterval(() => {
+        if (!updateContent()) {
+          clearInterval(progressAnimationTimer);
+          dialog.close();
+          promiseKeeper.resolve(undefined);
+        }
+      }, 100);
+      const onCancel = () => {
+        clearInterval(progressAnimationTimer);
+        dialog.close();
+        delete error.retryAfter; // We can ignore the expected date, as it was already displayed in the progress dialog
+        promiseKeeper.reject(error);
+      };
+      const dialog = this.createDialog({
+        type: "Message",
+        title: resourceModel.getText("WARNING"),
+        content: [content],
+        endButton: new Button({
+          text: resourceModel.getText("C_COMMON_DIALOG_CANCEL"),
+          press: onCancel
+        }),
+        state: "Warning"
+      });
+      updateContent();
+      dialog.open();
+      return promiseKeeper.promise;
+    },
+    /**
+     * Handles an HTTP 503 error with a delay.
+     * @param error
+     * @param error.retryAfter
+     * @param rootControl
+     * @param resourceModel
+     * @returns A promise that resolves after the delay, or rejected if the user clicks Cancel.
+     */
+    async handle503Delay(error, rootControl, resourceModel) {
+      if (error.retryAfter === undefined) {
+        // No retry-after parameter -> rethrow error
+        return Promise.reject(error);
+      }
+      const delayInMs = error.retryAfter.getTime() - Date.now();
+      if (delayInMs < 5000) {
+        // Less than 5 seconds -> show busy indicator
+        return this._handleDelayBusy(delayInMs, rootControl);
+      } else if (delayInMs < 600000) {
+        // Between 5s and 10min -> show progress bar
+        return this._handleDelayProgressBar(delayInMs, error, resourceModel);
+      } else {
+        // More than 10 minutes or undefined --> standard error
+        return Promise.reject(error);
+      }
+    }
+  };
+  return handler;
+}, false);
+//# sourceMappingURL=HTTP503Handler-dbg.js.map

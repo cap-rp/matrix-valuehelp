@@ -1,0 +1,15 @@
+/*!
+ * TinyMCE Language Pack
+ *
+ * Copyright (c) 2023 Ephox Corporation DBA Tiny Technologies, Inc.
+ * Licensed under the Tiny commercial license. See https://www.tiny.cloud/legal/
+ */
+tinymce.addI18n("kk", {
+  "Save code": "\u041a\u043e\u0434\u0442\u044b \u0441\u0430\u049b\u0442\u0430\u0443",
+  "Cancel": "\u0411\u0430\u0441 \u0442\u0430\u0440\u0442\u0443",
+  "Fullscreen": "\u0422\u043e\u043b\u044b\u049b \u044d\u043a\u0440\u0430\u043d",
+  "Copy code": "\u041a\u043e\u0434\u0442\u044b \u043a\u04e9\u0448\u0456\u0440\u0443",
+  "Dark/light mode": "\u041a\u04af\u04a3\u0433\u0456\u0440\u0442/\u0436\u0430\u0440\u044b\u049b \u0440\u0435\u0436\u0438\u043c\u0456",
+  "Increase font size": "\u049a\u0430\u0440\u0456\u043f \u04e9\u043b\u0448\u0435\u043c\u0456\u043d \u04af\u043b\u043a\u0435\u0439\u0442\u0443",
+  "Decrease font size": "\u049a\u0430\u0440\u0456\u043f \u04e9\u043b\u0448\u0435\u043c\u0456\u043d \u043a\u0456\u0448\u0456\u0440\u0435\u0439\u0442\u0443"
+});

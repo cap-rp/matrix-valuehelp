@@ -1,0 +1,6 @@
+/*!
+ * SAP UI development toolkit for HTML5 (SAPUI5)
+ *      (c) Copyright 2009-2025 SAP SE. All rights reserved
+ */
+sap.ui.define(["sap/fe/base/ClassSupport","sap/ui/core/Lib","sap/ui/model/odata/type/String","sap/ui/model/ValidateException"],function(t,e,o,r){"use strict";var n,s;var a=t.defineUI5Class;function p(t,e){t.prototype=Object.create(e.prototype),t.prototype.constructor=t,i(t,e)}function i(t,e){return i=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t},i(t,e)}const c=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]{1,64}/;const u=/[a-zA-Z0-9-]{1,255}/;let l=(n=a("sap.fe.core.type.Email"),n(s=function(t){function o(){return t.apply(this,arguments)||this}p(o,t);var n=o.prototype;n.validateValue=function o(n){const s=n.split("@");const a=s?.[0];const p=s?.[1];if(n&&(!a||!p||!c.test(a)||!p.split(".").every(t=>u.test(t))||s.length!==2)){throw new r(e.getResourceBundleFor("sap.fe.core").getText("T_EMAILTYPE_INVALID_VALUE"))}t.prototype.validateValue.call(this,n)};return o}(o))||s);return l},false);
+//# sourceMappingURL=Email.js.map

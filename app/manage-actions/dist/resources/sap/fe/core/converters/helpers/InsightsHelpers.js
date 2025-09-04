@@ -1,0 +1,6 @@
+/*!
+ * SAP UI development toolkit for HTML5 (SAPUI5)
+ *      (c) Copyright 2009-2025 SAP SE. All rights reserved
+ */
+sap.ui.define(["sap/fe/base/BindingToolkit","../ManifestSettings"],function(t,e){"use strict";var n={};var a=e.TemplateType;var i=t.pathInModel;var s=t.equal;var r=t.constant;var l=t.and;function o(t,e,n,o){let u,g;const p=e.getManifestWrapper().hasMultipleEntitySets();const f=e.getManifestWrapper().hasMultipleVisualizations();const d=e.getManifestWrapper().getViewConfiguration();const c=d!==undefined&&d.paths.length>1?true:false;const b=e.getTemplateType()===a.ListReport;const h=e.getManifestControlConfiguration(n);const T=t==="Analytical"?h?.enableAddCardToInsights??true:h?.tableSettings?.enableAddCardToInsights??true;if(t==="Table"){u=o?.tableManifestConfiguration;g=u?.type==="ResponsiveTable"}return l(r(T),r(b),r(!p),r(!c),r(t==="Table"?(g??false)&&!f:true),s(i("isInsightsSupported","pageInternal"),true))}n.getInsightsVisibility=o;function u(){return s(i("isInsightsEnabled","internal"),true)}n.getInsightsEnablement=u;return n},false);
+//# sourceMappingURL=InsightsHelpers.js.map

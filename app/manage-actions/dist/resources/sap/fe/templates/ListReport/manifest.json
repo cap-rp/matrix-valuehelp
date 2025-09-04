@@ -1,0 +1,91 @@
+{
+	"_version": "1.14.0",
+	"sap.app": {
+		"id": "sap.fe.templates.ListReport",
+		"type": "component",
+		"i18n": "../messagebundle.properties",
+		"applicationVersion": {
+			"version": "1.136.0"
+		},
+		"title": "List Report",
+		"tags": {
+			"keywords": ["List Report"]
+		},
+		"ach": "CA-UI5-FE",
+		"embeddedBy": "../",
+		"offline": false,
+		"resources": "resources.json"
+	},
+	"sap.ui5": {
+		"services": {
+			"templatedViewService": {
+				"settings": {
+					"converterType": "ListReport"
+				}
+			}
+		},
+		"commands": {
+			"Save": {
+				"name": "Save",
+				"shortcut": "Ctrl+S",
+				"description": "{{SAVE_SHORTCUT_DESCRIPTION}}"
+			},
+			"Cancel": {
+				"name": "Cancel",
+				"shortcut": "Escape",
+				"description": "{{CANCEL_SHORTCUT_DESCRIPTION}}"
+			},
+			"Create": {
+				"name": "Create",
+				"shortcut": "Ctrl+Enter",
+				"description": "{{CREATE_OBJECT_SHORTCUT_DESCRIPTION}}"
+			},
+			"DeleteEntry": {
+				"name": "DeleteEntry",
+				"shortcut": "Ctrl+D",
+				"description": "{{DELETE_OBJECT_SHORTCUT_DESCRIPTION}}"
+			},
+			"Share": {
+				"name": "Share",
+				"shortcut": "Shift+Ctrl+S",
+				"description": "{{SHARE_SHORTCUT_DESCRIPTION}}"
+			},
+			"FE_FilterSearch": {
+				"name": "FE_FilterSearch",
+				"shortcut": "Ctrl+Enter",
+				"description": "{{FILTER_SEARCH_SHORTCUT_DESCRIPTION}}"
+			},
+			"Cut": {
+				"name": "Cut",
+				"shortcut": "Ctrl+X",
+				"description": "{{CUT_SHORTCUT_DESCRIPTION}}"
+			},
+			"Paste": {
+				"name": "Paste",
+				"shortcut": "Ctrl+V",
+				"description": "{{PASTE_SHORTCUT_DESCRIPTION}}"
+			},
+			"TableMoveElementUp": {
+				"name": "TableMoveElementUp",
+				"shortcut": "Ctrl+Alt+ArrowUp",
+				"description": "{{TABLE_MOVE_ELEMENT_UP_DESCRIPTION}}"
+			},
+			"TableMoveElementDown": {
+				"name": "TableMoveElementDown",
+				"shortcut": "Ctrl+Alt+ArrowDown",
+				"description": "{{TABLE_MOVE_ELEMENT_DOWN_DESCRIPTION}}"
+			}
+		},
+		"handleValidation": true,
+		"dependencies": {
+			"minUI5Version": "${sap.ui5.core.version}",
+			"libs": {
+				"sap.fe.core": {},
+				"sap.ui.mdc": {},
+				"sap.fe.macros": {},
+				"sap.ui.fl": {},
+				"sap.fe.navigation": {}
+			}
+		}
+	}
+}

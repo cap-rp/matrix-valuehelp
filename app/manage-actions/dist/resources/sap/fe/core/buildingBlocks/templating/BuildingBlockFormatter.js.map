@@ -1,0 +1,1 @@
+{"version":3,"file":"BuildingBlockFormatter.js","names":["base64Decode","base64","atob"],"sources":["./BuildingBlockFormatter.ts"],"sourcesContent":["export default {\n\tbase64Decode: (base64: string): string => {\n\t\treturn atob(base64);\n\t}\n};\n"],"mappings":";;;;+CAAe,CACdA,aAAeC,GACPC,KAAKD,GAEb","ignoreList":[]}

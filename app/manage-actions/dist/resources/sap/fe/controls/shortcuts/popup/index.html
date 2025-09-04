@@ -1,0 +1,85 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Keyboard Interactions</title>
+		<script
+			id="sap-ui-bootstrap"
+			src="../../../../../sap-ui-core.js"
+			data-sap-ui-async="true"
+			data-sap-ui-oninit="onInit"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-libs="sap.ui.core"
+			data-sap-ui-theme="sap_horizon"
+		></script>
+		<!--OWASP recommendation to prevent click-jacking-->
+		<style id="antiCJ">
+			body {
+				display: none !important;
+			}
+		</style>
+		<style>
+			.sapUiSupportBody {
+				margin: 0;
+				font-family: var(--sapFontFamily);
+			}
+
+			.sapUiBody .sapMPanelContent {
+				padding: 0;
+			}
+			.sapUiBody .sapMSF {
+				padding: 0.625rem 1rem;
+			}
+			.sapUiSizeCompact.sapUiBody .sapMSF {
+				padding-left: 1rem;
+				padding-right: 1rem;
+				padding-top: 0.5rem;
+				height: 2.5rem;
+			}
+			.sapUiBody .sapMTreeItemBaseChildren {
+				padding-left: 0.25rem !important;
+				border-bottom: 1px solid var(--sapList_BorderColor);
+			}
+			.sapMLabel.sapFeControlsShortcutKey {
+				color: var(--sapContent_LabelColor);
+				background-color: var(--sapButton_Background);
+				border: 1px solid var(--sapButton_BorderColor);
+				font-family: "72-CondensedBold", "72", "72full", Arial, Helvetica, sans-serif;
+				font-weight: 700;
+				font-size: 14px;
+				padding: 2px 4px 2px 4px;
+			}
+			.sapMFT.sapFeControlsShorcutMFT p:first-child {
+				margin: 0;
+			}
+		</style>
+		<script type="application/javascript">
+			function onInit() {
+				sap.ui.require(["sap/fe/controls/shortcuts/popup/ShortcutTool"], function (ShortcutTool) {
+					window.shortcutTool = new ShortcutTool();
+					window.shortcutTool.placeAt("sapUiSupportBody");
+				});
+			}
+			if (self === top) {
+				var antiCJ = document.getElementById("antiCJ");
+				antiCJ.parentNode.removeChild(antiCJ);
+			} else {
+				top.location = self.location;
+			}
+			var _remoteOrigin = new URLSearchParams(window.location.search).get("sap-ui-xx-shortcut-origin");
+			window.addEventListener("message", function (messageEvent) {
+				if (_remoteOrigin === messageEvent.origin) {
+					const messageData = messageEvent?.data;
+					if (messageData.service === "sap.ui.interaction.MessagePortReady") {
+						window.messagePort = messageEvent.ports[0]; // Remember the port
+						if (window.shortcutTool) {
+							window.shortcutTool.setupPort(window.messagePort);
+						}
+					}
+				}
+			});
+		</script>
+	</head>
+	<body class="sapUiBody sapUiSizeCompact">
+		<div id="sapUiSupportBody"></div>
+	</body>
+</html>

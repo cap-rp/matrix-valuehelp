@@ -1,0 +1,6 @@
+/*!
+ * SAP UI development toolkit for HTML5 (SAPUI5)
+ *      (c) Copyright 2009-2025 SAP SE. All rights reserved
+ */
+sap.ui.define(["sap/fe/core/converters/MetaModelConverter","./Operation"],function(t,n){"use strict";var e=t.convertTypes;async function o(t,o,c,r){const i=o.getMetaModel();const a=`/${t}`;const u=e(i);const s=u.resolvePath(a).target,f=s?.action;if(!f){throw new Error("Unknown action import")}return new n(c,o,s.action,r).execute()}async function c(t,n,e){if(!n){return Promise.reject("Bound functions always requires a context")}const o=e.getMetaModel(),c=`${o.getMetaPath(n.getPath())}/${t}`,r=o.createBindingContext(c);return i(t,e,r,n)}async function r(t,n){const e=n.getMetaModel(),o=n.bindContext(`/${t}`).getPath(),c=e.createBindingContext(`/${e.createBindingContext(o).getObject("$Function")}/0`);return i(t,n,c)}async function i(t,n,e,o){if(!e?.getObject()){return Promise.reject(new Error(`Function ${t} not found`))}const c=n.bindContext(`${o?.getPath()??""}/${t}(...)`);const r=o?"functionGroup":"functionImport";const i=c.invoke(r);n.submitBatch(r);await i;return c.getBoundContext()}const a={callActionImport:o,callBoundFunction:c,callFunctionImport:r};return a},false);
+//# sourceMappingURL=facade.js.map

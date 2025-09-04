@@ -1,0 +1,57 @@
+<core:FragmentDefinition
+	xmlns:macro="sap.fe.macros.internal"
+	xmlns:macrosTable="sap.fe.macros.table"
+	xmlns:macrosFPM="sap.fe.macros.fpm"
+	xmlns:core="sap.ui.core"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	template:require="{
+		TABLEHELPER: 'sap/fe/macros/table/TableHelper'
+	}"
+>
+	<macro:Table
+		id="{visualizationDefinition>annotation/apiId}"
+		contentId="{visualizationDefinition>annotation/id}"
+		metaPath="{presentationContext>annotationPath}"
+		inMultiView="{presentationContext>inMultiView}"
+		contextPath="{fullContextPath>}"
+		associatedSelectionVariantPath="{presentationContext>associatedSelectionVariantPath}"
+		filterBar="{= ${converterContext>filterBarId} ? ${converterContext>filterBarId} : undefined}"
+		busy="{ui>/busy}"
+		variantSelected=".handlers.onVariantSelected"
+		variantSaved=".handlers.onVariantSaved"
+		isAlp="{converterContext>hasMultiVisualizations}"
+		segmentedButtonPress="{= ${converterContext>hasMultiVisualizations} ? '.handlers.onSegmentedButtonPressed' : undefined }"
+		displaySegmentedButton="{converterContext>hasMultiVisualizations}"
+		widthIncludingColumnHeader="{visualizationDefinition>control/widthIncludingColumnHeader}"
+		visible="{= ${converterContext>hasMultiVisualizations} ? '{= ${pageInternal>alpContentView} !== \'Chart\'}' : 'true' }"
+		tabTitle="{view>title}"
+		headerLevel="H3"
+		fieldMode="nowrapper"
+		header="{visualizationDefinition>header}"
+		headerVisible="{visualizationDefinition>headerVisible}"
+		variantManagement="{visualizationDefinition>annotation/variantManagement}"
+		readOnly="{visualizationDefinition>control/readOnly}"
+		ignoredFields="{visualizationDefinition>control/ignoredFields}"
+	>
+		<macro:columns>
+			<template:repeat list="{visualizationDefinition>columns}" var="column">
+				<template:if test="{= ${column>type} === 'Default' }">
+					<macrosTable:Column key="{column>key}">
+						<macrosFPM:CustomFragment
+							id="{column>key}"
+							fragmentName="{column>template}"
+							contextPath="{visualizationDefinition>annotation/collection}"
+						>
+							<macrosFPM:childCustomData>
+								<core:CustomData
+									key="AssociatedProperties"
+									value="{= TABLEHELPER.createBindingToLoadProperties(${column>properties})}"
+								/>
+							</macrosFPM:childCustomData>
+						</macrosFPM:CustomFragment>
+					</macrosTable:Column>
+				</template:if>
+			</template:repeat>
+		</macro:columns>
+	</macro:Table>
+</core:FragmentDefinition>

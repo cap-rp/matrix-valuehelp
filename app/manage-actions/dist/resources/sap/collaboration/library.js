@@ -1,0 +1,7 @@
+/*!
+ * SAP UI development toolkit for HTML5 (SAPUI5)
+
+(c) Copyright 2009-2017 SAP SE. All rights reserved
+ */
+sap.ui.define(["sap/ui/base/DataType","sap/ui/core/Lib","sap/ui/core/library","sap/suite/ui/commons/library"],function(e,o){"use strict";var s=o.init({name:"sap.collaboration",apiVersion:2,dependencies:["sap.ui.core","sap.suite.ui.commons"],types:["sap.collaboration.AppType","sap.collaboration.DisplayFeedType","sap.collaboration.FeedType"],interfaces:[],controls:["sap.collaboration.components.controls.FeedEntryEmbedded","sap.collaboration.components.controls.FilterPopover","sap.collaboration.components.controls.ReplyPopover","sap.collaboration.components.controls.SocialTextArea","sap.collaboration.components.controls.TimelineEntryEmbedded","sap.collaboration.components.socialtimeline.controls.TimelineItemEmbedded"],elements:[],version:"1.136.0"});s.AppType={split:"split",widget:"widget"};e.registerEnum("sap.collaboration.AppType",s.AppType);s.DisplayFeedType={BusinessRecordFeed:"BusinessRecordFeed",GroupFeedsWhereBusinessRecordIsLinked:"GroupFeedsWhereBusinessRecordIsLinked"};e.registerEnum("sap.collaboration.DisplayFeedType",s.DisplayFeedType);s.FeedType={follows:"follows",company:"company",group:"group",objectGroup:"objectGroup",object:"object",GroupIds:"GroupIds",BusinessObjectGroups:"BusinessObjectGroups",UserGroups:"UserGroups"};e.registerEnum("sap.collaboration.FeedType",s.FeedType);return s});
+//# sourceMappingURL=library.js.map

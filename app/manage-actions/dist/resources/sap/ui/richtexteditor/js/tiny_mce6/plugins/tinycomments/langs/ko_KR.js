@@ -1,0 +1,51 @@
+/*!
+ * TinyMCE Language Pack
+ *
+ * Copyright (c) 2023 Ephox Corporation DBA Tiny Technologies, Inc.
+ * Licensed under the Tiny commercial license. See https://www.tiny.cloud/legal/
+ */
+tinymce.addI18n("ko_KR", {
+  "TinyComments": "\uac04\ub2e8 \uc8fc\uc11d",
+  "Comments": "\uc8fc\uc11d",
+  "Add comment": "\uc8fc\uc11d \ucd94\uac00",
+  "Show comments": "\uc8fc\uc11d \ud45c\uc2dc",
+  "Delete all conversations": "\ubaa8\ub4e0 \ub300\ud654 \uc0ad\uc81c",
+  "Delete conversation": "\ub300\ud654 \uc0ad\uc81c",
+  "Delete": "\uc0ad\uc81c",
+  "Clear": "\uc9c0\uc6b0\uae30",
+  "Edit": "\ud3b8\uc9d1",
+  "Comment": "\uc8fc\uc11d",
+  "Save": "\uc800\uc7a5",
+  "Add comment...": "\uc8fc\uc11d \ucd94\uac00...",
+  "Delete all conversations in the content? This cannot be undone.": "\uc774 \ub0b4\uc6a9\uc758 \ubaa8\ub4e0 \ub300\ud654\ub97c \uc0ad\uc81c\ud558\uc2dc\uaca0\uc2b5\ub2c8\uae4c? \uc774 \uc791\uc5c5\uc740 \ucde8\uc18c\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.",
+  "Are you sure you want to delete this comment?": "\uc774 \uc8fc\uc11d\uc744 \uc0ad\uc81c\ud558\uc2dc\uaca0\uc2b5\ub2c8\uae4c?",
+  "Delete this conversation?": "\uc774 \ub300\ud654\ub97c \uc0ad\uc81c\ud558\uc2dc\uaca0\uc2b5\ub2c8\uae4c?",
+  "You are not allowed to edit this comment": "\uc774 \uc8fc\uc11d\uc744 \ud3b8\uc9d1\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.",
+  "You are not allowed to delete all the conversations": "\ubaa8\ub4e0 \ub300\ud654\ub97c \uc0ad\uc81c\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.",
+  "You are not allowed to delete this conversation": "\uc774 \ub300\ud654\ub97c \uc0ad\uc81c\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.",
+  "You are not allowed to delete this comment": "\uc774 \uc8fc\uc11d\uc744 \uc0ad\uc81c\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.",
+  "1 comment will be deleted. You can't undo this action.": "1\uac1c \uc8fc\uc11d\uc774 \uc0ad\uc81c\ub429\ub2c8\ub2e4. \uc774 \uc791\uc5c5\uc740 \ucde8\uc18c\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.",
+  "{0} comments will be deleted. You can't undo this action.": "{0}\uac1c \uc8fc\uc11d\uc774 \uc0ad\uc81c\ub429\ub2c8\ub2e4. \uc774 \uc791\uc5c5\uc740 \ucde8\uc18c\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.",
+  " (edited)": "(\ud3b8\uc9d1\ub428)",
+  "a moment ago": "\ubc29\uae08 \uc804",
+  "1 minute ago": "1\ubd84 \uc804",
+  "{0} minutes ago": "{0}\ubd84 \uc804",
+  "1 hour ago": "1\uc2dc\uac04 \uc804",
+  "{0} hours ago": "{0}\uc2dc\uac04 \uc804",
+  "1 day ago": "1\uc77c \uc804",
+  "{0} days ago": "{0}\uc77c \uc804",
+  "1 week ago": "1\uc8fc \uc804",
+  "{0} weeks ago": "{0}\uc8fc \uc804",
+  "1 month ago": "1\ub2ec \uc804",
+  "{0} months ago": "{0}\ub2ec \uc804",
+  "1 year ago": "1\ub144 \uc804",
+  "{0} years ago": "{0}\ub144 \uc804",
+  "SHOW MORE": "\uc790\uc138\ud788 \ud45c\uc2dc",
+  "SHOW LESS": "\uac04\ub2e8\ud788 \ud45c\uc2dc",
+  "Resolve conversation": "\ub300\ud654 \ud574\uacb0",
+  "Resolve": "\ud574\uacb0",
+  "Resolve this conversation?": "\uc774 \ub300\ud654\ub97c \ud574\uacb0\ud558\uc2dc\uaca0\uc2b5\ub2c8\uae4c?",
+  "1 comment will be resolved. You can't undo this action.": "1\uac1c \uc8fc\uc11d\uc774 \ud574\uacb0\ub429\ub2c8\ub2e4. \uc774 \uc791\uc5c5\uc740 \ucde8\uc18c\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.",
+  "{0} comments will be resolved. You can't undo this action.": "{0}\uac1c \uc8fc\uc11d\uc774 \ud574\uacb0\ub429\ub2c8\ub2e4. \uc774 \uc791\uc5c5\uc740 \ucde8\uc18c\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4.",
+  "You are not allowed to resolve this conversation": "\uc774 \ub300\ud654\ub97c \ud574\uacb0\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4."
+});

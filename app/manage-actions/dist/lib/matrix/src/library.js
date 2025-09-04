@@ -1,0 +1,2 @@
+sap.ui.define(["sap/base/util/ObjectPath","sap/ui/core/library"],function(i){"use strict";sap.ui.getCore().initLibrary({name:"matrix",version:"0.0.1",dependencies:["sap.ui.core","sap.m"],types:[],interfaces:[],controls:["matrix.control.CriticalityMatrix","matrix.control.CriticalityField"],elements:[],noLibraryCSS:false});const t=i.get("matrix");return t});
+//# sourceMappingURL=library.js.map
