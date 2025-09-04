@@ -1,1 +1,0 @@
-{"version":3,"names":["facade"],"sourceRoot":".","sources":["operations.ts"],"sourcesContent":["import facade from \"./operations/facade\";\nexport default facade;\n"],"mappings":";;;;;;;SACeA,MAAM;AAAA","ignoreList":[],"file":"operations-dbg.js"}

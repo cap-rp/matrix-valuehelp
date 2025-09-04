@@ -1,8 +1,0 @@
-/*!
- * 
-		SAP UI development toolkit for HTML5 (SAPUI5)
-		(c) Copyright 2009-2015 SAP SE. All rights reserved
-	
- */
-sap.ui.define(["sap/ui/core/Lib"],function(e){"use strict";var t=Object.freeze({"-sortIcon":"TIMELINE_SORT_BUTTON","-filterIcon":"TIMELINE_FILTER_BUTTON","-searchField":"TIMELINE_SEARCH_FIELD"});var n=e.getResourceBundleFor("sap.suite.ui.commons");function r(e){return n.getText(e)}function a(e){return{actions:{remove:{changeType:"hideToolbarItem",changeOnRelevantContainer:true},reveal:{changeType:"unhideToolbarItem",changeOnRelevantContainer:true,getLabel:function(){return r(e)}}},name:{singular:r.bind(null,e),plural:r.bind(null,e)}}}function o(e,t){return function(n){var r=n.getId();if(typeof e=="string"&&e.length>0&&r.endsWith(e)){return a(t)}return{}}}return{aggregations:{content:{ignore:true},customFilter:{ignore:true},filterList:{ignore:true},suggestionItems:{ignore:true},headerBar:{propagateMetadata:function(e){var n=e.getId(),r;for(r in t){if(typeof r=="string"&&r.length>0&&n.endsWith(r)){return a(t[r])}}if(n.endsWith("-headerBar")){return a("TIMELINE_HEADER_BAR")}return{}},propagateRelevantContainer:true},searchField:{propagateMetadata:o("-searchField","TIMELINE_SEARCH_FIELD"),propagateRelevantContainer:true},sortIcon:{propagateMetadata:o("-sortIcon","TIMELINE_SORT_BUTTON"),propagateRelevantContainer:true},filterIcon:{propagateMetadata:o("-filterIcon","TIMELINE_FILTER_BUTTON"),propagateRelevantContainer:true}},actions:{remove:{changeType:"hideControl"},reveal:{changeType:"unhideControl",getLabel:function(){return r("TIMELINE_ACCESSIBILITY_TITLE")}}},name:{singular:"TIMELINE_ACCESSIBILITY_TITLE",plural:"TIMELINE_ACCESSIBILITY_TITLE"}}},false);
-//# sourceMappingURL=Timeline.designtime.js.map

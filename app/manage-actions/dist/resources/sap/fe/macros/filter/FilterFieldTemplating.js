@@ -1,6 +1,0 @@
-/*!
- * SAP UI development toolkit for HTML5 (SAPUI5)
- *      (c) Copyright 2009-2025 SAP SE. All rights reserved
- */
-sap.ui.define(["sap/fe/core/templating/PropertyHelper","sap/fe/core/templating/UIFormatters","sap/fe/core/converters/MetaModelConverter"],function(t,e,n){"use strict";var r={};var o=e.getDisplayMode;var a=t.hasValueHelp;const s=function(t,e){return a(e)?o(t):"Value"};r.getDisplayProperty=s;const c=async function(t,e,n){const r=e?.annotations?.Common?.Text;if(r){return s(t,e)}const c=a(e);if(c){const e=t?.targetEntityType?.annotations?.UI?.TextArrangement;return e?o(t):i(n,t)}return"Value"};r.getFilterFieldDisplayFormat=c;async function i(t,e){const r=t.context;const a=t.context.getModel();return a.requestValueListInfo(r.getPath(),true,r).then(function(t){const r=Object.keys(t)[0];const s=t[r];const c=s.Parameters?.find(t=>t.LocalDataProperty?.$PropertyPath===e?.targetObject?.name);const i=c?.ValueListProperty;const l=n.getInvolvedDataModelObjects(a.createBindingContext("/"+s.CollectionPath+"/"+i));return o(l)})}r._getDisplayModeFromValueHelp=i;return r},false);
-//# sourceMappingURL=FilterFieldTemplating.js.map

@@ -85,6 +85,11 @@ sap.ui.define([
             var letters = ["A", "B", "C", "D"];
             var cellSize = oControl.getCellSize();
             var allowed = { white: "#ffffff", green: "#92d050", orange: "#f4b084", red: "#ff5c5c" };
+
+            // Helper to check if a string is a valid hex color
+            function isHexColor(str) {
+                return /^#([0-9a-fA-F]{3}){1,2}$/.test(str);
+            }
             var selected = oControl._selectedKey;
             var filter = oControl._filter || "";
 
@@ -110,7 +115,7 @@ sap.ui.define([
                     var key = r + l;
                     var colorName = (values[key] || "white").toString();
                     var titleText = titles[key] || ""; // NEW: title text for cell
-                    var bg = allowed[colorName] || colorName || allowed.white;
+                    var bg = allowed[colorName] || (isHexColor(colorName) ? colorName : colorName) || allowed.white;
                     // filter logic: show if key or color or title includes filter text
                     var show = true;
                     if (filter) {

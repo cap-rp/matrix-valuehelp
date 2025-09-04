@@ -1,6 +1,0 @@
-/*!
- * SAP UI development toolkit for HTML5 (SAPUI5)
- *      (c) Copyright 2009-2025 SAP SE. All rights reserved
- */
-sap.ui.define(["sap/fe/core/CommonUtils","sap/fe/macros/chart/ChartUtils","sap/fe/macros/table/Utils","sap/fe/macros/table/delegates/TableDelegate","sap/ui/model/Filter"],function(t,e,n,i,s){"use strict";const a=Object.assign({},i,{apiVersion:2,_internalUpdateBindingInfo:function(o,r){let l;let c;Object.assign(r,i._computeRowBindingInfoFromTemplate(o));if(o.getRowBinding()){r.suspended=false}const f=t.getTargetView(o);const g=f.getController().getChartControl?.();const d=g?.getParent();const h=d?.hasSelections();const p=n.getAllFilterInfo(o);const u=p&&p.filters;l=p;if(h){const t=e.getAllFilterInfo(g);if(t&&t.filters){t.filters.forEach(t=>{if(t.getPath()){t.sPath=d.getChartPropertiesWithoutPrefixes(t.getPath())}})}c=t?.filters??null;l=t}const P=(u&&c?u.concat(c):c||u)||[];const b=P.length>0?new s({filters:P,and:true}):null;if(l.bindingPath){r.path=l.bindingPath}a.updateBindingInfoWithSearchQuery(r,l,b);i.addFilterOnActiveEntities(o,r)},rebind:function(t,e){const n=t.getBindingContext("pageInternal");const s=n?.getProperty(`${n.getPath()}/alpContentView`);if(s!=="Chart"){i.rebind(t,e)}}});return a},false);
-//# sourceMappingURL=ALPTableDelegate.js.map

@@ -8,7 +8,7 @@ default-*.json
 gen/
 node_modules/
 target/
-
+dist/
 # Web IDE, App Studio
 .che/
 .gen/
@@ -25,10 +25,6 @@ mta_archives/
 
 *.iml
 *.flattened-pom.xml
-
-# IDEs
-# .vscode
-# .idea
 
 # @cap-js/cds-typer
 @cds-models

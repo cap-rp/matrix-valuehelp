@@ -1,1 +1,0 @@
-{"version":3,"names":["Fragment","isFragment","_exports"],"sourceRoot":".","sources":["Fragment.ts"],"sourcesContent":["export default class Fragment {\n\tstatic isFragment = true;\n}\n"],"mappings":";;;;;;;;MAAqBA,QAAQ,YAAAA,SAAA;EAARA,QAAQ,CACrBC,UAAU,GAAG,IAAI;EAAAC,QAAA,GAAAF,QAAA;EAAA,OAAAE,QAAA;AAAA","ignoreList":[],"file":"Fragment-dbg.js"}

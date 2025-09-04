@@ -1,6 +1,0 @@
-/*!
- * SAP UI development toolkit for HTML5 (SAPUI5)
- *      (c) Copyright 2009-2025 SAP SE. All rights reserved
- */
-sap.ui.define(["sap/fe/base/ClassSupport","sap/ui/core/Lib","sap/ui/model/CompositeType","sap/ui/model/ValidateException","sap/ui/model/odata/type/Date"],function(e,t,a,r,o){"use strict";var s,u;var i=e.defineUI5Class;function n(e,t){e.prototype=Object.create(t.prototype),e.prototype.constructor=e,p(e,t)}function p(e,t){return p=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(e,t){return e.__proto__=t,e},p(e,t)}let f=(s=i("sap.fe.core.type.Date"),s(u=function(e){function a(t,a){var r;r=e.call(this,t,a)||this;r.bParseWithValues=true;r.date=new o;r.bUseRawValues=true;return r}n(a,e);var s=a.prototype;s.validateValue=function e(a){const o=t.getResourceBundleFor("sap.fe.core");if(a[0]){if(a[1]){if(Date.parse(a[0])<Date.parse(a[1])){throw new r(o.getText("C_ERROR_MINMAX_VALIDATION_DISPLAYED"))}}if(a[2]){if(Date.parse(a[0])>Date.parse(a[2])){throw new r(o.getText("C_ERROR_MINMAX_VALIDATION_DISPLAYED"))}}}this.date.validateValue(a[0])};s.formatValue=function e(t,a){return this.date.formatValue(t[0],a)};s.parseValue=function e(t,a){return[this.date.parseValue(t,a)]};return a}(a))||u);return f},false);
-//# sourceMappingURL=Date.js.map

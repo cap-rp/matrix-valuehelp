@@ -1,6 +1,0 @@
-/*!
- * SAP UI development toolkit for HTML5 (SAPUI5)
- *      (c) Copyright 2009-2025 SAP SE. All rights reserved
- */
-sap.ui.define(["sap/m/Button","sap/m/Dialog","sap/m/Text","sap/ui/core/library","sap/fe/base/jsx-runtime/jsx","sap/fe/base/jsx-runtime/jsxs"],function(i,e,t,n,s,a){"use strict";var o={};var l=n.ValueState;let d=function(){function n(n){this.containingView=n;this.dialog=a(e,{title:"{sap.fe.i18n>WARNING}",type:"Message",state:l.Warning,children:[{content:s(t,{text:"{sap.fe.i18n>C_INLINE_EDIT_BEFOREACTION_MESSAGE}"})},{beginButton:s(i,{type:"Emphasized",text:"{sap.fe.i18n>C_INLINE_EDIT_DIALOG_SAVE}",press:()=>this.closeAndSave()})},{endButton:s(i,{text:"{sap.fe.i18n>C_INLINE_EDIT_DIALOG_DISCARD}",press:()=>this.closeAndDiscard()})}]});n.addDependent(this.dialog)}o=n;var d=n.prototype;d.open=function i(){this.dialog.open()};d.closeAndDiscard=function i(){this.dialog.close();this.containingView.getController().inlineEditFlow.inlineEditDiscard();this.dialog.destroy()};d.closeAndSave=function i(){this.dialog.close();this.containingView.getController().inlineEditFlow.inlineEditSave();this.dialog.destroy()};return n}();o=d;return o},false);
-//# sourceMappingURL=BeforeActionDialog.js.map

@@ -1,6 +1,0 @@
-/*!
- * SAP UI development toolkit for HTML5 (SAPUI5)
- *      (c) Copyright 2009-2025 SAP SE. All rights reserved
- */
-sap.ui.define(["sap/fe/core/ActionRuntime","sap/fe/macros/chart/ChartUtils","sap/fe/macros/DelegateUtil"],function(t,e,n){"use strict";const o={fnUpdateChart:function(o){const a=o.getSource();const s=a.getParent();let c,r={},i=[];s.getCustomData().forEach(function(t){if(t.getKey()==="operationAvailableMap"){r=n.getCustomData(s,"operationAvailableMap").customData}else if(t.getKey()==="multiSelectDisabledActions"){c=t.getValue();i=c?c.split(","):[]}});const l=s.getBindingContext("internal");const f=[];let g;const u=e.getChartSelectedData(a);for(let t=0;t<u.length;t++){f.push(u[t].context)}l.setProperty("selectedContexts",f);l.getModel().setProperty(`${l.getPath()}/numberOfSelectedContexts`,a.getSelectedDataPoints().count);for(let t=0;t<f.length;t++){const e=f[t];const n=e.getObject();for(const t in n){if(t.indexOf("#")===0){let e=t;e=e.substring(1,e.length);g=l.getObject();g[e]=true;l.setProperty("",g)}}g=l.getObject()}t.setActionEnablement(l,r,f,"chart");if(f.length>1){i.forEach(function(t){l.setProperty(t,false)})}}};return o},false);
-//# sourceMappingURL=ChartRuntime.js.map

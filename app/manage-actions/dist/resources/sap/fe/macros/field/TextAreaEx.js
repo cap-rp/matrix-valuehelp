@@ -1,6 +1,0 @@
-/*!
- * SAP UI development toolkit for HTML5 (SAPUI5)
- *      (c) Copyright 2009-2025 SAP SE. All rights reserved
- */
-sap.ui.define(["sap/fe/base/ClassSupport","sap/fe/core/helpers/ResourceModelHelper","sap/m/TextArea","sap/ui/core/library"],function(e,t,r,a){"use strict";var n,s;var o={};var i=a.ValueState;var u=t.getResourceModel;var l=e.defineUI5Class;function p(e,t){e.prototype=Object.create(t.prototype),e.prototype.constructor=e,c(e,t)}function c(e,t){return c=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(e,t){return e.__proto__=t,e},c(e,t)}let f=(n=l("sap.fe.macros.field.TextAreaEx"),n(s=function(e){function t(){return e.apply(this,arguments)||this}o=t;p(t,e);var r=t.prototype;r.fireLiveChange=function t(r){e.prototype.fireLiveChange.call(this,r);this._validateTextLength(r?.value);return this};r.setValue=function t(r){e.prototype.setValue.call(this,r??"");this._validateTextLength(r);return this};r._validateTextLength=function e(t){const r=this.getMaxLength();if(!r||t===undefined||t===null){return}if(t.length>r){const e=u(this).getText("M_FIELD_TEXTAREA_TEXT_TOO_LONG");this.setValueState(i.Error);this.setValueStateText(e)}else{this.setValueState(i.None)}};return t}(r))||s);o=f;return o},false);
-//# sourceMappingURL=TextAreaEx.js.map

@@ -1,6 +1,0 @@
-/*!
- * SAP UI development toolkit for HTML5 (SAPUI5)
- *      (c) Copyright 2009-2025 SAP SE. All rights reserved
- */
-sap.ui.define(["sap/fe/base/ClassSupport","sap/ui/model/resource/ResourceModel"],function(e,t){"use strict";var s,o;var r=e.defineUI5Class;function u(e,t){e.prototype=Object.create(t.prototype),e.prototype.constructor=e,c(e,t)}function c(e,t){return c=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(e,t){return e.__proto__=t,e},c(e,t)}let n=(s=r("sap.fe.core.ResourceModel"),s(o=function(e){function t(){return e.apply(this,arguments)||this}u(t,e);var s=t.prototype;s.getText=function e(t,s,o){let r=t;const u=this._oResourceBundle;if(o){const e=this.checkIfResourceKeyExists(`${r}|${o}`);r=e?`${r}|${o}`:r}return u?.getText(r,s,true)||t};s.checkIfResourceKeyExists=function e(t){return this._checkIfResourceKeyExists(t,this._oResourceBundle.aCustomBundles)};s._checkIfResourceKeyExists=function e(t,s){if(s?.length){for(let e=s.length-1;e>=0;e--){const o=s[e].hasText(t);if(o){return true}this._checkIfResourceKeyExists(t,s[e].aCustomBundles)}}return false};return t}(t))||o);return n},false);
-//# sourceMappingURL=ResourceModel.js.map

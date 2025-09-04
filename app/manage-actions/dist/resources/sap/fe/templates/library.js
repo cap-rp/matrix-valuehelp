@@ -1,6 +1,0 @@
-/*!
- * SAP UI development toolkit for HTML5 (SAPUI5)
- *      (c) Copyright 2009-2025 SAP SE. All rights reserved
- */
-sap.ui.define(["sap/f/library","sap/fe/core/library","sap/fe/macros/library","sap/fe/templates/ListReport/view/fragments/MultipleMode.block","sap/ui/base/DataType","sap/ui/core/Lib","sap/ui/core/library","sap/ui/fl/library"],function(e,a,s,t,p,i,r,c){"use strict";var o={};const n="sap.fe.templates";o.templatesNamespace=n;const l="sap.fe.templates.ListReport";o.templatesLRNamespace=l;const f="sap.fe.templates.ObjectPage";o.templatesOPNamespace=f;const m=i.init({name:"sap.fe.templates",apiVersion:2,dependencies:["sap.ui.core","sap.fe.core","sap.fe.macros","sap.m","sap.f","sap.ui.mdc","sap.ui.fl"],types:["sap.fe.templates.ObjectPage.SectionLayout"],interfaces:[],controls:[],elements:[],version:"1.136.0",noLibraryCSS:true});if(!m.ObjectPage){m.ObjectPage={}}m.ObjectPage.SectionLayout={Page:"Page",Tabs:"Tabs"};p.registerEnum("sap.fe.templates.ObjectPage.SectionLayout",m.ObjectPage.SectionLayout);t.register();return m},false);
-//# sourceMappingURL=library.js.map

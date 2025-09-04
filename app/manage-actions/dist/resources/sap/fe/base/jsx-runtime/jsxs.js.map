@@ -1,1 +1,0 @@
-{"version":3,"file":"jsxs.js","names":["jsx"],"sources":["./jsxs.ts"],"sourcesContent":["import jsx from \"sap/fe/base/jsx-runtime/jsx\";\n\nexport default jsx;\n"],"mappings":";;;;8EAEeA,CAAG","ignoreList":[]}

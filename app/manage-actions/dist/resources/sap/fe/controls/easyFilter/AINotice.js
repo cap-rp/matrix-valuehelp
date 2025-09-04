@@ -1,6 +1,0 @@
-/*!
- * SAP UI development toolkit for HTML5 (SAPUI5)
- *      (c) Copyright 2009-2025 SAP SE. All rights reserved
- */
-sap.ui.define(["sap/m/Button","sap/m/OverflowToolbar","sap/m/Popover","sap/m/Text","sap/m/ToolbarSpacer","sap/m/VBox","sap/m/library","sap/fe/base/jsx-runtime/jsx","sap/fe/base/jsx-runtime/jsxs","sap/fe/base/jsx-runtime/Fragment"],function(e,t,r,s,o,n,a,p,T,_){"use strict";var c=a.PlacementType;var u=a.ButtonType;function l(a){return p(e,{text:a.resourceBundle.getText("M_EASY_FILTER_FILTER_SET_AI"),icon:"sap-icon://ai",type:u.Transparent,press:u=>{const l=p(r,{contentWidth:"22.8125rem",showArrow:true,showHeader:true,placement:c.Bottom,title:a.resourceBundle.getText("M_EASY_FILTER_POPOVER_AI_TITLE"),children:{content:T(n,{children:[p(s,{class:"sapFeControlsAiPopoverText1",text:a.resourceBundle.getText("M_EASY_FILTER_POPOVER_AI_TEXT_1")}),p(s,{class:"sapFeControlsAiPopoverText2",text:a.resourceBundle.getText("M_EASY_FILTER_POPOVER_AI_TEXT_2")})]}),footer:p(t,{children:{content:T(_,{children:[p(o,{}),p(e,{text:a.resourceBundle.getText("M_EASY_FILTER_POPOVER_CLOSE"),press:()=>{l?.close()}})]})}})}});l.openBy(u.getSource())}})}return l},false);
-//# sourceMappingURL=AINotice.js.map

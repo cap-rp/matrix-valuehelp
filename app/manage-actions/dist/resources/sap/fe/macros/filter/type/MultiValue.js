@@ -1,6 +1,0 @@
-/*!
- * SAP UI development toolkit for HTML5 (SAPUI5)
- *      (c) Copyright 2009-2025 SAP SE. All rights reserved
- */
-sap.ui.define(["sap/fe/base/ClassSupport","sap/fe/macros/filter/type/Value"],function(t,e){"use strict";var r,o;var a={};var n=t.defineUI5Class;function i(t,e){t.prototype=Object.create(e.prototype),t.prototype.constructor=t,p(t,e)}function p(t,e){return p=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t},p(t,e)}let u=(r=n("sap.fe.macros.filter.type.MultiValue"),r(o=function(t){function e(){return t.apply(this,arguments)||this}a=e;i(e,t);var r=e.prototype;r.getOperatorConfig=function t(e){return{name:e,multiValue:true}};r.formatValue=function e(r,o){let a=r;if(typeof a==="string"){a=a.split(",")}if(Array.isArray(a)){a=a.map(e=>t.prototype.formatValue.call(this,e,this.getElementTypeName(o))).filter(t=>t!==undefined)}return a||[]};r.parseValue=function e(r,o){if(!r){r=[]}const a=t.prototype.externalToString.call(this,r,o);if(t.prototype.hasCustomOperator.call(this)){return{operator:this.operator.name,values:[a],validated:undefined}}return r.map(t=>{if(t===undefined){t=[]}else if(!Array.isArray(t)){t=[t]}return this.operator.format({values:t})})};return e}(e))||o);a=u;return a},false);
-//# sourceMappingURL=MultiValue.js.map

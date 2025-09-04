@@ -1,8 +1,0 @@
-/*!
- * 
-		SAP UI development toolkit for HTML5 (SAPUI5)
-		(c) Copyright 2009-2015 SAP SE. All rights reserved
-	
- */
-sap.ui.define(["sap/ui/base/ManagedObject"],function(e){"use strict";var t=e.extend("sap.suite.ui.commons.CloudFileInfo",{metadata:{library:"sap.suite.ui.commons",properties:{fileShareId:{type:"string",group:"Data"},fileShareItemId:{type:"string",group:"Data"},isFolder:{type:"boolean",group:"Data"},parentFileShareItemId:{type:"string",group:"Data"},fileShareItemName:{type:"string",group:"Data"},createdByUser:{type:"string",group:"Data"},creationDateTime:{type:"string",group:"Data"},lastChangedByUser:{type:"string",group:"Data"},lastChangeDateTime:{type:"string",group:"Data"},fileShareItemContent:{type:"string",group:"Data"},fileShareItemContentType:{type:"string",group:"Data"},fileShareItemContentSize:{type:"string",group:"Data"},fileShareItemContentLink:{type:"string",group:"Data"},isDocumentCreationAllowed:{type:"boolean",group:"Data"},fileShareItemHumanContentType:{type:"string",group:"Data"}}}});return t});
-//# sourceMappingURL=CloudFileInfo.js.map

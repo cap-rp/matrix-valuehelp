@@ -1,6 +1,0 @@
-/*!
- * SAPUI5
- * (c) Copyright 2025 SAP SE. All rights reserved.
- */
-sap.ui.define(["sap/ui/core/Lib"],function(e){"use strict";var t={apiVersion:2};t.render=function(t,i){var r=i.getAggregation("_toolbarWrapper");var a=r&&i._bCustomToolbarRequirementsFullfiled;var s=e.getResourceBundleFor("sap.ui.richtexteditor");var o=i.getPlugins();var l=false;t.openStart("div",i);t.class("sapUiRTE");if(i.getRequired()){t.class("sapUiRTEReq")}if(i.getUseLegacyTheme()){t.class("sapUiRTELegacyTheme")}if(a){t.class("sapUiRTEWithCustomToolbar")}t.style("width",i.getWidth());l=o.some(function(e){return e.name==="autoresize"});if(i.getHeight()&&!l){t.style("height",i.getHeight())}if(i.getTooltip_AsString()){t.attr("title",i.getTooltip_AsString())}t.accessibilityState(i,{role:"region",label:s.getText("RTE_ARIA_LABEL"),labelledby:null});t.openEnd();if(a){t.renderControl(r)}var n="render"+i.getEditorType()+"Editor";if(this[n]&&typeof this[n]==="function"){this[n].call(this,t,i)}const g=i.getFooter();t.openStart("div",i.getId()+"-textareaWrapper");t.class("sapUiRTETextAreaWrapper");if(g){t.class("sapUiRTEFooter")}t.openEnd();t.openStart("textarea",i.getId()+"-textarea");t.style("height","100%");t.style("width","100%");t.openEnd();t.close("textarea");if(g&&a){t.renderControl(g)}t.close("div");t.close("div")};return t},true);
-//# sourceMappingURL=RichTextEditorRenderer.js.map

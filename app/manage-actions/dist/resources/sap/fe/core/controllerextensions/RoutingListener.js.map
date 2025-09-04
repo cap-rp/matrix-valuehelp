@@ -1,1 +1,0 @@
-{"version":3,"file":"RoutingListener.js","names":["InternalRouting"],"sources":["./RoutingListener.ts"],"sourcesContent":["import InternalRouting from \"sap/fe/core/controllerextensions/InternalRouting\";\n\nexport default InternalRouting;\n"],"mappings":";;;;mGAEeA,CAAe","ignoreList":[]}
