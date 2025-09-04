@@ -50,7 +50,6 @@
         "sap.m": {},
         "sap.ui.core": {},
         "sap.fe.templates": {}
-       
       }
     },
     "contentDensities": {
