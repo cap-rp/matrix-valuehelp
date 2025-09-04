@@ -82,7 +82,7 @@ sap.ui.define([
 
             var values = oControl.getValues() || {};
             var titles = oControl.getTitles() || {}; // NEW: read titles mapping
-            var letters = ["A", "B", "C", "D"];
+            var letters = ["A", "B", "C", "D","E"];
             var cellSize = oControl.getCellSize();
             var allowed = { white: "#ffffff", green: "#92d050", orange: "#f4b084", red: "#ff5c5c" };
 

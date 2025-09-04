@@ -3,6 +3,6 @@ xmlns:core="sap.ui.core"
 xmlns:mv="matrix.control"
 xmlns="sap.m" xmlns:macros="sap.fe.macros">
 	<VBox core:require="{ handler: 'qe/manageactions/ext/fragment/Criticality'}">
-		<mv:CriticalityField value="{criticality}" cellsPath="/CriticalityCells" modelName="odata"/>
+			<mv:CriticalityField value="{ path: 'criticality_ID', type: 'sap.ui.model.type.String' }" editable="{= ${ui>/isEditable} }" cellsPath="/CriticalityCells"/>
 	</VBox>
 </core:FragmentDefinition>
